@@ -7,9 +7,6 @@ import Categories from "./components/inputs/Categories"
 import Constants from "./shared/global/Constants"
 import * as http from "./shared/api/BackendAPI"
 
-interface Files {
-
-}
 
 function App() {
   const [searchField, setSearchField] = useState<string>("")
@@ -19,10 +16,7 @@ function App() {
   const [author, setAuthor] = useState<string>("")
   
   const log = () => {
-    // console.log("FILE:", uploadedFile)
-    // console.log("CATEGORY:", category)
-    // console.log("AUTHOR:", author)
-    console.log("SEARCH RESULT:", searchResult)
+    console.log("Search Result:", searchResult)
   }
 
   const checkFormValid = (): boolean => {
@@ -33,7 +27,7 @@ function App() {
     if(checkFormValid()) {
       http.uploadFile(author, category, uploadedFile)
       .catch((error) => console.log(error))
-      
+
       setFile(undefined)
       setCategory("")
       setAuthor("")
@@ -65,6 +59,7 @@ function App() {
 
       {uploadedFile && <>
         <Categories
+          title={uploadedFile.name}
           categories={Constants.CATEGORIES}
           categoryChange={
             (e: React.ChangeEvent<HTMLInputElement>): void => {

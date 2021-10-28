@@ -1,55 +1,6 @@
-import React, { useState } from 'react'
-import axios from "axios"
-import { uploadFile } from "../../shared/api/BackendAPI"
+import React from 'react'
 import "./Button.css"
-import Constants from '../../shared/global/Constants'
-const Fields = Constants.Fields
 
-
-const FirstUploadButton = () => {
-    const [selectedFile, setSelectedFile] = useState<File>()
-
-    const onChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
-		if (!e.currentTarget.files) return
-		setSelectedFile(e.currentTarget.files[0])
-    }
-
-	const onFormSubmit = (e: React.SyntheticEvent) => {
-		if (!selectedFile) return
-		e.preventDefault()
-
-		// uploadFile()
-
-		//console.log(typeof selectedFile)
-
-		// const url = '/upload-file';
-		// const formData = new FormData();
-		// formData.append(Fields.TITLE, selectedFile.name)
-		// formData.append(Fields.AUTHOR, "oscar")
-		// formData.append(Fields.CATEGORY, "exercise")
-		// formData.append(Fields.FILE, selectedFile)
-		
-		// axios({
-		// 	method: "post",
-		// 	url: url,
-		// 	data: formData,
-		// 	headers: { "content-type": "multipart/form-data" },
-		// })
-		// 	.then(function (response) {
-		// 	  console.log(response.data);
-		// 	})
-		// 	.catch(function (response) {
-		// 	  console.log(response);
-		// 	});
-	  }
-
-    return (
-		<form onSubmit={onFormSubmit}>
-        	<input type="file" onChange={onChange} />
-        	<button type="submit">Upload</button>
-		</form>
-    )
-}
 
 interface Props {
 	text: String,

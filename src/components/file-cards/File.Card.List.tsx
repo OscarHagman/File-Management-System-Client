@@ -15,6 +15,7 @@ const FileCardList: React.FC<Props> = ({ files }) => {
                     title={file.title}
                     author={file.author}
                     category={file.category}
+                    fileId={file._id}
                 />
             )
         })}

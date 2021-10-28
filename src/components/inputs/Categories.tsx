@@ -2,12 +2,14 @@ import React from 'react'
 
 interface Props {
     categories: string[],
+    title: string,
     categoryChange: React.ChangeEventHandler<HTMLInputElement>
 }
 
-const Categories: React.FC<Props> = ({ categories, categoryChange }) => {
+const Categories: React.FC<Props> = ({ title, categories, categoryChange }) => {
     return (
-        <>
+        <div>
+        <h1>{title}</h1>
         {categories.map((category, index) => {
             return (
                 <div key={index}>
@@ -22,7 +24,7 @@ const Categories: React.FC<Props> = ({ categories, categoryChange }) => {
                 </div>
             )
         })}
-        </>
+        </div>
     )
 }
 

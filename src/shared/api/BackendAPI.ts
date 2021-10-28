@@ -21,8 +21,9 @@ const uploadFile = async (author: string, category: string, file: any) => {
     return http.post("/upload-file", formData, config)
 }
 
-const downloadFile = (fileId: number): object => {
-    return http.post(`/download/${fileId}`)
+const downloadFile = async (fileId: string) => {
+    const fileType: any = "blob"
+    return http.get(`/download/${fileId}`, {responseType: fileType})
 }
 
 const fuzzySearchFiles = async (searchField: string) => {

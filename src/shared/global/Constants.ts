@@ -17,8 +17,10 @@ const CATEGORIES = [
     "Examination"
 ]
 
-export default {
+const Constants = {
     Fields,
     URLs,
     CATEGORIES
 }
+
+export default Constants

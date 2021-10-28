@@ -1,21 +1,33 @@
 import Button from "../buttons/Button"
 import React from 'react'
+import * as http from "../../shared/api/BackendAPI"
 
 interface Props {
     title: string,
     author: string,
     category: string,
+    fileId: string,
     createdAt?: Date,
     updateAt?: Date
 }
 
-const FileCard: React.FC<Props> = ({title, author, category}) => {
+const FileCard: React.FC<Props> = ({title, author, category, fileId }) => {
     const editFile = () => {
         console.log("Edit")
     }
 
     const downloadFile = () => {
-        console.log("downloaded")
+        http.downloadFile(fileId)
+        .then((response: any) => {
+            console.log("RES:", response)
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', title);
+            document.body.appendChild(link);
+            link.click()
+        })
+        .catch((error) => console.log("ERROR:", error))
     }
 
     const deleteFile = () => {
