@@ -1,5 +1,5 @@
-import React from "react"
-import "./Field.Input.css"
+import React from 'react'
+import './Field.Input.css'
 
 interface Props {
     text: string,
@@ -7,13 +7,13 @@ interface Props {
 }
 
 const FieldInput: React.FC<Props> = ({ text, searchChange }) => {
-    return (
-        <input 
-            type="search"
-            placeholder={text}
-            onChange={searchChange}
-        />
-    )
+	return (
+		<input 
+			type="search"
+			placeholder={text}
+			onChange={searchChange}
+		/>
+	)
 }
 
 export default FieldInput
