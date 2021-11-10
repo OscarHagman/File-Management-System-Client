@@ -43,17 +43,17 @@ const fuzzySearchFiles = (searchField: string) => {
 // 	return http.put(`/update-file/${fileId}`)
 // }
 
-// const deleteFile = async (fileId: string) => {
-// 	return http.delete(`/delete-file/${fileId}`)
-// }
+const deleteFile = async (fileId: string) => {
+	return http.delete(`/delete-file/${fileId}`)
+}
 
 export default {
 	uploadFile,
 	downloadFile,
 	fuzzySearchFiles,
-	getAllFiles,
-	getAllFilesByCategory,
-	getAllFilesByTitle,
-	updateFile,
+	// getAllFiles,
+	// getAllFilesByCategory,
+	// getAllFilesByTitle,
+	// updateFile,
 	deleteFile
 }

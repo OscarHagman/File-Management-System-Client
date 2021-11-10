@@ -32,11 +32,11 @@ const FileCard: React.FC<Props> = ({title, author, category, fileId, onDelete })
 
 	const deleteFile = () => {
 		BackendAPIService.deleteFile(fileId)
-			.then((response) => {
+			.then((response: any) => {
 				console.log(response)
 				onDelete(fileId)
 			})
-			.catch((error) => {console.log('ERROR:', error)})
+			.catch((error: any) => {console.log('ERROR:', error)})
 	}
 
 	return (
