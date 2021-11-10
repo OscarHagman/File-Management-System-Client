@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Button from "./components/buttons/Button"
 import { UploadButton } from "./components/buttons/Upload.Button"
 import FieldInput from "./components/inputs/Field.Input"
@@ -18,6 +18,8 @@ function App() {
   const log = () => {
     console.log("Search Result:", searchResult)
   }
+
+  //useEffect(() => {console.log("Used effect")}, [searchResult, setSearchResult])
 
   const checkFormValid = (): boolean => {
     return (uploadedFile && category && author) ? true : false
@@ -39,10 +41,24 @@ function App() {
 
   const search = () => {
     http.fuzzySearchFiles(searchField)
-    .then((response) => setSearchResult(response.data))
-    .catch((error) => console.log("ERROR:", error))
+    .then((response) => {
+      setSearchResult(response.data)
+    })
+    .catch((error) => {
+      console.log("ERROR:", error)
+      alert('There are no files that match ' + '"' + searchField + '"')
+    })
+  }
 
-
+  const deleteFileFromResult = (fileId: string) => {
+    //Delete API has to be called on the FileCard, otherwise weird bugs appear...
+    for (let i = 0; i < searchResult.length; i++) {
+      if (searchResult[i]._id === fileId) {
+        let updatedResult = searchResult
+        delete updatedResult[i]
+        setSearchResult(updatedResult.filter((n: any) => n))
+      }
+    }
   }
 
   return (
@@ -55,7 +71,7 @@ function App() {
       }/>
       <UploadButton text="Upload file" handleFile={(file: File) => {setFile(file)}}/>
       <Button text="Search" action={search}/>
-      <Button text="Log search result" action={log}/>
+      <Button text="log search results" action={log}/>
 
       {uploadedFile && <>
         <Categories
@@ -66,18 +82,18 @@ function App() {
               setCategory(e.currentTarget.value)
             }
         }/>
-
         <FieldInput text="Author" searchChange={
           (e: React.FormEvent<HTMLInputElement>) => {
             setAuthor(e.currentTarget.value.toLocaleLowerCase())
           }
         }/>
-
         <Button text="Upload" action={submitFile}/>
       </>}
 
-      {searchResult && <FileCardList files={searchResult}/>}
-
+      {searchResult && <FileCardList
+        files={searchResult}
+        deleteFileCard={(fileId: string) => deleteFileFromResult(fileId)}/>}
+      
 
     </div>
   );

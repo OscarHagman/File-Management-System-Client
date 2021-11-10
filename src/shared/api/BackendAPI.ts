@@ -46,7 +46,7 @@ const updateFile = (fileId: number): object => {
     return http.put(`/update-file/${fileId}`)
 }
 
-const deleteFile = (fileId: number): object => {
+const deleteFile = async (fileId: string) => {
     return http.delete(`/delete-file/${fileId}`)
 }
 

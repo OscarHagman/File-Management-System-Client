@@ -8,10 +8,11 @@ interface Props {
     category: string,
     fileId: string,
     createdAt?: Date,
-    updateAt?: Date
+    updateAt?: Date,
+    onDelete: any
 }
 
-const FileCard: React.FC<Props> = ({title, author, category, fileId }) => {
+const FileCard: React.FC<Props> = ({title, author, category, fileId, onDelete }) => {
     const editFile = () => {
         console.log("Edit")
     }
@@ -19,7 +20,6 @@ const FileCard: React.FC<Props> = ({title, author, category, fileId }) => {
     const downloadFile = () => {
         http.downloadFile(fileId)
         .then((response: any) => {
-            console.log("RES:", response)
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -31,7 +31,12 @@ const FileCard: React.FC<Props> = ({title, author, category, fileId }) => {
     }
 
     const deleteFile = () => {
-        console.log("deleted")
+        http.deleteFile(fileId)
+        .then((response) => {
+            console.log(response)
+            onDelete(fileId)
+        })
+        .catch((error) => {console.log("ERROR:", error)})
     }
 
     return (
