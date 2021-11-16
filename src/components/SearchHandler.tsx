@@ -10,12 +10,8 @@ export const SearchHandler = () => {
 	const [searchField, setSearchField] = useState<string>('')
 	const { searchFiles } = useFileManagement()
 
-	const deleteFileFromResult = (fileId: string) => {
-		console.log("File ID:", fileId)
-	}
-
 	return (
-		<div>
+		<>
 			<FieldInput text="Search for files" searchChange={
 				(e: React.FormEvent<HTMLInputElement>) => {
 					setSearchField(e.currentTarget.value.toLocaleLowerCase())
@@ -24,7 +20,7 @@ export const SearchHandler = () => {
 			<Button text="Search" action={() => searchFiles(searchField)} />
 			{searchResults && <FileCardList
 				files={searchResults}
-				deleteFileCard={(fileId: string) => deleteFileFromResult(fileId)} />}
-		</div>
+			/>}
+		</>
 	)
 }
