@@ -12,7 +12,7 @@ const FileCardList: React.FC<Props> = ({ files }) => {
 	if (!files) return <div></div>
 
 	return (
-		<div onClick={() => console.log(files)}>
+		<>
 			{files.map((file: any, index: number) => {
 				return (
 					<FileCard
@@ -25,7 +25,7 @@ const FileCardList: React.FC<Props> = ({ files }) => {
 					/>
 				)
 			})}
-		</div>
+		</>
 	)
 }
 
