@@ -13,10 +13,18 @@ export const useFileManagement: any = () => {
 		} catch (error) {
 			console.log(error)
 		}
-		console.log("Searched Files")
+	}
+
+	const uploadFile = async (author: any, category: any, uploadedFile: any) => {
+		try {
+			BackendAPIService.uploadFile(author, category, uploadedFile)
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	return {
-		searchFiles
+		searchFiles,
+		uploadFile
 	}
 }

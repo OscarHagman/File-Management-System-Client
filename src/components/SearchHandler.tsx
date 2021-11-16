@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react'
-import Button from './buttons/Button'
-import FieldInput from './inputs/Field.Input'
 import { useFileManagement } from '../hooks/useFileManagement'
 import { SearchContext } from '../shared/provider/SearchFileProvider'
+import Button from './buttons/Button'
+import FieldInput from './inputs/Field.Input'
 import FileCardList from './file-cards/File.Card.List'
 
 export const SearchHandler = () => {
@@ -31,10 +31,10 @@ export const SearchHandler = () => {
 				}
 			} />
 			<Button text="Search" action={() => searchFiles(searchField)} />
-		{/* 	{displaySearch()} */}
-			{<FileCardList
+			{displaySearch()}
+			{/* {<FileCardList
 				files={searchResults}
-				deleteFileCard={(fileId: string) => console.log(fileId)} />}
+				deleteFileCard={(fileId: string) => console.log(fileId)} />} */}
 		</div>
 	)
 }
