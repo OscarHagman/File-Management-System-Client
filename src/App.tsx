@@ -15,8 +15,8 @@ function App() {
 	const [uploadedFile, setFile] = useState<File>()
 	const [category, setCategory] = useState<string>('')
 	const [author, setAuthor] = useState<string>('')
-  
-	const {useFileManager} = useFileManagement()
+
+	const { useFileManager } = useFileManagement()
 
 	const log = () => {
 		console.log('Search Result:', searchResult)
@@ -29,7 +29,7 @@ function App() {
 	}
 
 	const submitFile = () => {
-		if(checkFormValid()) {
+		if (checkFormValid()) {
 			BackendAPIService.uploadFile(author, category, uploadedFile)
 				.catch((error) => console.log(error))
 
@@ -71,10 +71,10 @@ function App() {
 				(e: React.FormEvent<HTMLInputElement>) => {
 					setSearchField(e.currentTarget.value.toLocaleLowerCase())
 				}
-			}/>
-			<UploadButton text="Upload file" handleFile={(file: File) => {setFile(file)}}/>
-			<Button text="Search" action={() => useFileManager(searchField)}/>
-			<Button text="log search results" action={log}/>
+			} />
+			<UploadButton text="Upload file" handleFile={(file: File) => { setFile(file) }} />
+			<Button text="Search" action={() => useFileManager(searchField)} />
+			<Button text="log search results" action={log} />
 
 			{uploadedFile && <>
 				<Categories
@@ -84,19 +84,19 @@ function App() {
 						(e: React.ChangeEvent<HTMLInputElement>): void => {
 							setCategory(e.currentTarget.value)
 						}
-					}/>
+					} />
 				<FieldInput text="Author" searchChange={
 					(e: React.FormEvent<HTMLInputElement>) => {
 						setAuthor(e.currentTarget.value.toLocaleLowerCase())
 					}
-				}/>
-				<Button text="Upload" action={submitFile}/>
+				} />
+				<Button text="Upload" action={submitFile} />
 			</>}
 
 			{searchResult && <FileCardList
 				files={searchResult}
-				deleteFileCard={(fileId: string) => deleteFileFromResult(fileId)}/>}
-      
+				deleteFileCard={(fileId: string) => deleteFileFromResult(fileId)} />}
+
 
 		</div>
 	)
