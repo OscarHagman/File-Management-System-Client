@@ -1,13 +1,14 @@
 import { SearchFileProvider } from './shared/provider/SearchFileProvider'
-import { SearchHandler } from './components/SearchHandler'
-import { UploadHandler } from './components/UploadHandler'
+import { FileView } from './view/file/FileView'
+import { GlobalStyles } from './shared/styles/GlobalStyles'
 
 export const App = () => {
 	return (
-		<SearchFileProvider>
-			<h1>Codic File Management System</h1>
-			<UploadHandler />
-			<SearchHandler />
-		</SearchFileProvider>
+		<>
+			<GlobalStyles />
+			<SearchFileProvider>
+				<FileView />
+			</SearchFileProvider>
+		</>
 	)
 }
