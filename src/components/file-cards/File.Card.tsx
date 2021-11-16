@@ -14,9 +14,6 @@ interface Props {
 
 const FileCard: React.FC<Props> = ({ title, author, category, fileId }) => {
 	const { deleteFile } = useFileManagement()
-	const editFile = () => {
-		console.log('Edit')
-	}
 
 	const downloadFile = () => {
 		BackendAPIService.downloadFile(fileId)
@@ -46,7 +43,6 @@ const FileCard: React.FC<Props> = ({ title, author, category, fileId }) => {
 			</div>
 			<div className="cardLeft">
 				<img src="../../../public/favicon.ico" alt="file-type-icon" />
-				<Button text="Edit" action={editFile} />
 			</div>
 		</div>
 	)
