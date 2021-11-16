@@ -4,6 +4,7 @@ import { SearchContext } from '../shared/provider/SearchFileProvider'
 import { useDebounce } from '../hooks/useDebounce'
 import FieldInput from './inputs/Field.Input'
 import FileCardList from './file-cards/File.Card.List'
+import styled from 'styled-components'
 
 export const SearchHandler = () => {
 	const [searchResults, setSearchResults] = useContext(SearchContext)
@@ -34,9 +35,13 @@ export const SearchHandler = () => {
 
 	return (
 		<>
-			<FieldInput text="Search for files"
-				searchChange={(e: React.FormEvent<HTMLInputElement>) => setSearchField(e.currentTarget.value.toLocaleLowerCase())} />
+			<Input placeholder={'Search for files..'}
+				onChange={(e: React.FormEvent<HTMLInputElement>) => setSearchField(e.currentTarget.value.toLocaleLowerCase())} />
 			{isSearching ? <h1>Searching..</h1> : <FileCardList files={searchResults} />}
 		</>
 	)
 }
+
+const Input = styled.input`
+ 
+`
