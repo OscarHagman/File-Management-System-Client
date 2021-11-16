@@ -2,15 +2,15 @@ import React from 'react'
 import FileCard from './File.Card'
 
 interface Props {
-    files: any,
-    deleteFileCard: any
+	files: any,
+	deleteFileCard: any
 }
 
 const FileCardList: React.FC<Props> = ({ files, deleteFileCard }) => {
 	if (!files) return <div></div>
 
 	return (
-		<div>
+		<div onClick={() => console.log(files)}>
 			{files.map((file: any, index: number) => {
 				return (
 					<FileCard

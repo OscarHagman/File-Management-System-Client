@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Button from './components/buttons/Button'
 import { UploadButton } from './components/buttons/Upload.Button'
 import FieldInput from './components/inputs/Field.Input'
@@ -6,23 +6,16 @@ import FileCardList from './components/file-cards/File.Card.List'
 import Categories from './components/inputs/Categories'
 import Constants from './shared/global/Constants'
 import BackendAPIService from './shared/api/service/BackendAPIService'
-import { useFileManagement } from './hooks/useFileManagement'
+import { SearchFileProvider } from './shared/provider/SearchFileProvider'
+import { SearchHandler } from './components/SearchHandler'
+import { UploadHandler } from './components/UploadHandler'
 
 
 function App() {
-	const [searchField, setSearchField] = useState<string>('')
 	const [searchResult, setSearchResult] = useState<any>()
 	const [uploadedFile, setFile] = useState<File>()
 	const [category, setCategory] = useState<string>('')
 	const [author, setAuthor] = useState<string>('')
-
-	const { searchFiles } = useFileManagement()
-
-	const log = () => {
-		console.log('Search Result:', searchResult)
-	}
-
-	//useEffect(() => {console.log("Used effect")}, [searchResult, setSearchResult])
 
 	const checkFormValid = (): boolean => {
 		return (uploadedFile && category && author) ? true : false
@@ -32,7 +25,6 @@ function App() {
 		if (checkFormValid()) {
 			BackendAPIService.uploadFile(author, category, uploadedFile)
 				.catch((error) => console.log(error))
-
 			setFile(undefined)
 			setCategory('')
 			setAuthor('')
@@ -40,17 +32,6 @@ function App() {
 		else {
 			alert('All fields has to be filled')
 		}
-	}
-
-	const search = () => {
-		BackendAPIService.fuzzySearchFiles(searchField)
-			.then((response) => {
-				setSearchResult(response.data)
-			})
-			.catch((error) => {
-				console.log('ERROR:', error)
-				alert('There are no files that match ' + '"' + searchField + '"')
-			})
 	}
 
 	const deleteFileFromResult = (fileId: string) => {
@@ -65,40 +46,14 @@ function App() {
 	}
 
 	return (
-		<div className="App">
-			<h1>File Manager</h1>
-			<FieldInput text="Search for files" searchChange={
-				(e: React.FormEvent<HTMLInputElement>) => {
-					setSearchField(e.currentTarget.value.toLocaleLowerCase())
-				}
-			} />
-			<UploadButton text="Upload file" handleFile={(file: File) => { setFile(file) }} />
-			<Button text="Search" action={() => searchFiles(searchField)} />
-			<Button text="log search results" action={log} />
-
-			{uploadedFile && <>
-				<Categories
-					title={uploadedFile.name}
-					categories={Constants.CATEGORIES}
-					categoryChange={
-						(e: React.ChangeEvent<HTMLInputElement>): void => {
-							setCategory(e.currentTarget.value)
-						}
-					} />
-				<FieldInput text="Author" searchChange={
-					(e: React.FormEvent<HTMLInputElement>) => {
-						setAuthor(e.currentTarget.value.toLocaleLowerCase())
-					}
-				} />
-				<Button text="Upload" action={submitFile} />
-			</>}
-
+		<SearchFileProvider>
+			<h1>Codic File Management System</h1>
 			{searchResult && <FileCardList
 				files={searchResult}
 				deleteFileCard={(fileId: string) => deleteFileFromResult(fileId)} />}
-
-
-		</div>
+			<UploadHandler />
+			<SearchHandler />
+		</SearchFileProvider>
 	)
 }
 
