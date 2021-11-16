@@ -16,7 +16,7 @@ function App() {
 	const [category, setCategory] = useState<string>('')
 	const [author, setAuthor] = useState<string>('')
 
-	const { useFileManager } = useFileManagement()
+	const { searchFiles } = useFileManagement()
 
 	const log = () => {
 		console.log('Search Result:', searchResult)
@@ -73,7 +73,7 @@ function App() {
 				}
 			} />
 			<UploadButton text="Upload file" handleFile={(file: File) => { setFile(file) }} />
-			<Button text="Search" action={() => useFileManager(searchField)} />
+			<Button text="Search" action={() => searchFiles(searchField)} />
 			<Button text="log search results" action={log} />
 
 			{uploadedFile && <>
