@@ -7,25 +7,24 @@ import FileCardList from './file-cards/File.Card.List'
 import { useDebounce } from '../hooks/useDebounce'
 
 export const SearchHandler = () => {
-	const [searchResults] = useContext(SearchContext)
+	const [searchResults, setSearchResults] = useContext(SearchContext)
 	const [searchField, setSearchField] = useState<string>('')
 	const [isSearching, setIsSearching] = useState(false)
 	const { searchFiles } = useFileManagement()
-
 	const debouncedSearchTerm = useDebounce(searchField, 500)
 
-	const startSearch = async () => {
+	const startSearch = () => {
 		setIsSearching(true)
 		if (debouncedSearchTerm) {
 			try {
 				searchFiles(searchField)
 				setIsSearching(false)
 			} catch (error) {
+				setSearchResults([])
 				setIsSearching(false)
-				/* 	setResults([]) */
 			}
 		} else {
-			/* setResults([]) */
+			setSearchResults([])
 			setIsSearching(false)
 		}
 	}
