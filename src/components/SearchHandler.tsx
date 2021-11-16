@@ -10,17 +10,8 @@ export const SearchHandler = () => {
 	const [searchField, setSearchField] = useState<string>('')
 	const { searchFiles } = useFileManagement()
 
-	const displaySearch = () => {
-		return searchResults.map((element: any) =>
-			<div key={element._id}>
-				<p>{element.author}</p>
-				<p>{element.category}</p>
-				<p>{element.createdAt}</p>
-				<p>{element.filePath}</p>
-				<p>{element.title}</p>
-				<p>{element.updatedAt}</p>
-			</div>
-		)
+	const deleteFileFromResult = (fileId: string) => {
+		console.log("File ID:", fileId)
 	}
 
 	return (
@@ -31,7 +22,9 @@ export const SearchHandler = () => {
 				}
 			} />
 			<Button text="Search" action={() => searchFiles(searchField)} />
-			{displaySearch()}
+			{searchResults && <FileCardList
+				files={searchResults}
+				deleteFileCard={(fileId: string) => deleteFileFromResult(fileId)} />}
 			{/* {<FileCardList
 				files={searchResults}
 				deleteFileCard={(fileId: string) => console.log(fileId)} />} */}
