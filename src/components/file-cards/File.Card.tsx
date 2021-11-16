@@ -53,7 +53,6 @@ const FileCard: React.FC<Props> = ({ title, author, category, fileId }) => {
 
 			<div className="cardRight">
 				<Button text="download" action={downloadFile} />
-				{/* 	<Button text="delete" action={deleteFile(fileId)} /> */}
 				<button onClick={() => deleteFile(fileId)}>delete</button>
 			</div>
 
