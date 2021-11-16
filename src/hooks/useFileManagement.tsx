@@ -23,8 +23,19 @@ export const useFileManagement: any = () => {
 		}
 	}
 
+	const deleteFile = async (fileID: string) => {
+		try {
+			BackendAPIService.deleteFile(fileID)
+			console.log('REMOVED FILE')
+		} catch (error) {
+			console.log(error)
+			console.log('COULD NOT REMOVE FILE')
+		}
+	}
+
 	return {
 		searchFiles,
-		uploadFile
+		uploadFile,
+		deleteFile
 	}
 }

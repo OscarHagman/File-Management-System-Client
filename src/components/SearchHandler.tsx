@@ -25,9 +25,6 @@ export const SearchHandler = () => {
 			{searchResults && <FileCardList
 				files={searchResults}
 				deleteFileCard={(fileId: string) => deleteFileFromResult(fileId)} />}
-			{/* {<FileCardList
-				files={searchResults}
-				deleteFileCard={(fileId: string) => console.log(fileId)} />} */}
 		</div>
 	)
 }
