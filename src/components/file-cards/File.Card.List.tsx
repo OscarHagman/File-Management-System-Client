@@ -1,11 +1,11 @@
 import React from 'react'
-import FileCard from './File.Card'
+import { FileCard } from './File.Card'
 
 interface Props {
 	files: any,
 }
 
-const FileCardList: React.FC<Props> = ({ files }) => {
+export const FileCardList: React.FC<Props> = ({ files }) => {
 	if (!files) return <div></div>
 
 	return (
@@ -24,5 +24,3 @@ const FileCardList: React.FC<Props> = ({ files }) => {
 		</>
 	)
 }
-
-export default FileCardList

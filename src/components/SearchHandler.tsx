@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from 'react'
 import { useFileManagement } from '../hooks/useFileManagement'
 import { SearchContext } from '../shared/provider/SearchFileProvider'
 import { useDebounce } from '../hooks/useDebounce'
+import { FileCardList } from './file-cards/File.Card.List'
 import FieldInput from './inputs/Field.Input'
-import FileCardList from './file-cards/File.Card.List'
 import styled from 'styled-components'
 
 export const SearchHandler = () => {

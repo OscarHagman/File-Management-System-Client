@@ -12,7 +12,7 @@ interface Props {
 	updateAt?: Date,
 }
 
-const FileCard: React.FC<Props> = ({ title, author, category, fileId }) => {
+export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) => {
 	const { deleteFile } = useFileManagement()
 
 	const downloadFile = () => {
@@ -30,22 +30,20 @@ const FileCard: React.FC<Props> = ({ title, author, category, fileId }) => {
 
 	return (
 		<div>
-			<h1 className="cardTop">{title}</h1>
-			<div className="cardBottom">
-				<p className="textKey">Author:</p> <p className="textValue">{author}</p>
-				<p className="textKey">Category:</p> <p className="textValue">{category}</p>
-				<p className="textKey">Created At:</p> <p className="textValue">2021/10/27</p>
-				<p className="textKey">Updated At:</p> <p className="textValue">2021/10/27</p>
+			<h1>{title}</h1>
+			<div>
+				<p>Author:</p> <p>{author}</p>
+				<p>Category:</p> <p>{category}</p>
+				<p>Created At:</p> <p>2021/10/27</p>
+				<p>Updated At:</p> <p>2021/10/27</p>
 			</div>
-			<div className="cardRight">
+			<div>
 				<Button text="download" action={downloadFile} />
 				<button onClick={() => deleteFile(fileId)}>delete</button>
 			</div>
-			<div className="cardLeft">
+			<div>
 				<img src="../../../public/favicon.ico" alt="file-type-icon" />
 			</div>
 		</div>
 	)
 }
-
-export default FileCard
