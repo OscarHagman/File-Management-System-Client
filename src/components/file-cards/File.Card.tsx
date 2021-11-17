@@ -37,6 +37,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) =
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
 				<Span>Category:</Span> <Span2>{category}</Span2> <br />
 				<Span>Created At:</Span> <Span2>2021/10/27</Span2> <br />
+				<Span2>{Math.floor(Math.random() * 100) + 1} downloads</Span2> <br />
 			</InformationWrapper>
 			<ButtonWrapper row="1/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
