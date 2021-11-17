@@ -4,14 +4,15 @@ import { FileCard } from './File.Card'
 
 interface Props {
 	files: any,
+	searchTerm: string
 }
 
-export const FileCardList: React.FC<Props> = ({ files }) => {
-	if (!files) return <div></div>
+export const FileCardList: React.FC<Props> = ({ files, searchTerm }) => {
+	if (files && files.length == 0 && searchTerm) return <h1>No files found</h1>
 
 	return (
 		<Wrapper>
-			{files.map((file: any, index: number) => {
+			{files && files.map((file: any, index: number) => {
 				return (
 					<FileCard
 						key={index}

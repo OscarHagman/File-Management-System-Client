@@ -3,7 +3,6 @@ import { useFileManagement } from '../hooks/useFileManagement'
 import { SearchContext } from '../shared/provider/SearchFileProvider'
 import { useDebounce } from '../hooks/useDebounce'
 import { FileCardList } from './file-cards/File.Card.List'
-import FieldInput from './inputs/Field.Input'
 import styled from 'styled-components'
 
 export const SearchHandler = () => {
@@ -39,7 +38,7 @@ export const SearchHandler = () => {
 				<Input placeholder={'Search for files..'}
 					onChange={(e: React.FormEvent<HTMLInputElement>) => setSearchField(e.currentTarget.value.toLocaleLowerCase())} />
 			</Wrapper>
-			{isSearching ? <h1>Searching..</h1> : <FileCardList files={searchResults} />}
+			{isSearching ? <h1>Searching..</h1> : <FileCardList files={searchResults} searchTerm={searchField} />}
 		</>
 	)
 }
