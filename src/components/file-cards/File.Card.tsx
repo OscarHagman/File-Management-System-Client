@@ -32,7 +32,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) =
 	return (
 		<Wrapper>
 			<h1>{title}</h1>
-			<img src="../../../public/favicon.ico" alt="file-type-icon" />
+			<FileImage src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png" alt="file-type-icon" />
 			<div>
 				<span>Author: {author}</span> <br />
 				<span>Category: {category}</span> <br />
@@ -51,4 +51,8 @@ const Wrapper = styled.div`
 	background-color: white;
 	width: 60%;
 	margin: 0 auto 1%;
+`
+
+const FileImage = styled.img`
+	width: 4%;
 `
