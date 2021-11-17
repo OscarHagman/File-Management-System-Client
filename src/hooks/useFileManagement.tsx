@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { toast } from 'react-toastify'
 import BackendAPIService from '../shared/api/service/BackendAPIService'
 import { SearchContext } from '../shared/provider/SearchFileProvider'
 
@@ -18,6 +19,7 @@ export const useFileManagement: any = () => {
 	const uploadFile = async (author: any, category: any, uploadedFile: any) => {
 		try {
 			BackendAPIService.uploadFile(author, category, uploadedFile)
+			toast.success('File successfully uploaded')
 		} catch (error) {
 			console.log(error)
 		}
