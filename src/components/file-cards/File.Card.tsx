@@ -48,6 +48,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) =
 }
 
 const Wrapper = styled.div`
-	margin: 1%;
 	background-color: white;
+	width: 60%;
+	margin: 0 auto 1%;
 `
