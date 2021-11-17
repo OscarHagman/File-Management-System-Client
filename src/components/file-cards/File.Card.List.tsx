@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { FileCard } from './File.Card'
 
 interface Props {
@@ -9,7 +10,7 @@ export const FileCardList: React.FC<Props> = ({ files }) => {
 	if (!files) return <div></div>
 
 	return (
-		<>
+		<Wrapper>
 			{files.map((file: any, index: number) => {
 				return (
 					<FileCard
@@ -21,6 +22,9 @@ export const FileCardList: React.FC<Props> = ({ files }) => {
 					/>
 				)
 			})}
-		</>
+		</Wrapper>
 	)
 }
+
+const Wrapper = styled.div`
+`

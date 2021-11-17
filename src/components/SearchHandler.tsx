@@ -35,13 +35,19 @@ export const SearchHandler = () => {
 
 	return (
 		<>
-			<Input placeholder={'Search for files..'}
-				onChange={(e: React.FormEvent<HTMLInputElement>) => setSearchField(e.currentTarget.value.toLocaleLowerCase())} />
+			<Wrapper>
+				<Input placeholder={'Search for files..'}
+					onChange={(e: React.FormEvent<HTMLInputElement>) => setSearchField(e.currentTarget.value.toLocaleLowerCase())} />
+			</Wrapper>
 			{isSearching ? <h1>Searching..</h1> : <FileCardList files={searchResults} />}
 		</>
 	)
 }
 
+const Wrapper = styled.div`
+text-align: center;
+`
+
 const Input = styled.input`
- 
+width: 500px;
 `
