@@ -1,4 +1,4 @@
-import Button from '../buttons/Button'
+import { Button } from '../Button'
 import React from 'react'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
 import { useFileManagement } from '../../hooks/useFileManagement'
@@ -40,8 +40,8 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) =
 				<span>Updated At: 2021/10/27</span> <br />
 			</div>
 			<div>
-				<Button text="download" action={downloadFile} />
-				<button onClick={() => deleteFile(fileId)}>delete</button>
+				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
+				<Button color={'#FF6663'} text={'delete'} onClick={() => deleteFile(fileId)} />
 			</div>
 		</Wrapper>
 	)
