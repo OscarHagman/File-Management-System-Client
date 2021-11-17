@@ -27,4 +27,5 @@ export const FileCardList: React.FC<Props> = ({ files }) => {
 }
 
 const Wrapper = styled.div`
+margin: 1%;
 `
