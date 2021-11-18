@@ -28,10 +28,9 @@ export const useFileManagement: any = () => {
 	const deleteFile = async (fileID: string) => {
 		try {
 			BackendAPIService.deleteFile(fileID)
-			console.log('REMOVED FILE')
+			toast.success('Sucessfully removed file')
 		} catch (error) {
-			console.log(error)
-			console.log('COULD NOT REMOVE FILE')
+			toast.error('Error occured while trying to delete file')
 		}
 	}
 
