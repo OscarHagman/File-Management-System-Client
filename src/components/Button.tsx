@@ -9,7 +9,7 @@ export interface IButton {
 	onClick?: (event: MouseEvent) => void
 	isLoading?: boolean
 	disabled?: boolean
-   color?: string
+	color?: string
 	style?: any
 }
 
