@@ -1,8 +1,9 @@
 import { Button } from '../Button'
-import React from 'react'
+import React, { useContext } from 'react'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
 import { useFileManagement } from '../../hooks/useFileManagement'
 import styled from 'styled-components'
+import { SearchContext } from '../../shared/provider/SearchFileProvider'
 
 interface Props {
 	title: string,
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) => {
+	const [searchResults, setSearchResults] = useContext(SearchContext)
 	const { deleteFile } = useFileManagement()
 
 	const downloadFile = () => {
@@ -29,6 +31,11 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) =
 			.catch((error) => console.log('ERROR:', error))
 	}
 
+	const deleteAndUpdateResults = (fileId: string) => {
+		const updatedResults = searchResults.filter((item: any) => item._id != fileId)
+		deleteFile(fileId) && setSearchResults(updatedResults)
+	}
+
 	return (
 		<Wrapper>
 			<Title>{title}</Title> <br />
@@ -37,13 +44,14 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId }) =
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
 				<Span>Category:</Span> <Span2>{category}</Span2> <br />
 				<Span>Created At:</Span> <Span2>2021/10/27</Span2> <br />
+				<Span2>3859kb</Span2> <br />
 				<Span2>{Math.floor(Math.random() * 10000) + 1} downloads</Span2> <br />
 			</InformationWrapper>
 			<ButtonWrapper row="1/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
 			</ButtonWrapper>
 			<ButtonWrapper row="2/4">
-				<Button color={'#FF6663'} text={'delete'} onClick={() => deleteFile(fileId)} />
+				<Button color={'#FF6663'} text={'delete'} onClick={() => deleteAndUpdateResults(fileId)} />
 			</ButtonWrapper>
 		</Wrapper>
 	)
