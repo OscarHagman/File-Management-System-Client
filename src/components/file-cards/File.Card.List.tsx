@@ -20,6 +20,7 @@ export const FileCardList: React.FC<Props> = ({ files, searchTerm }) => {
 						author={file.author}
 						category={file.category}
 						fileId={file._id}
+						fileSize={file.fileSize}
 					/>
 				)
 			})}
