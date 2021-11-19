@@ -51,10 +51,8 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 				<Span2>{fileSize}</Span2> <br />
 				<Span2>{Math.floor(Math.random() * 10000) + 1} downloads</Span2> <br />
 			</InformationWrapper>
-			<ButtonWrapper row="1/2">
+			<ButtonWrapper row="2/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
-			</ButtonWrapper>
-			<ButtonWrapper row="2/4">
 				<Button color={'#FF6663'} text={'delete'} onClick={() => deleteAndUpdateResults(fileId)} />
 			</ButtonWrapper>
 		</Wrapper>
@@ -86,10 +84,10 @@ const FileImage = styled.img`
 	grid-row: 1/4;
 	align-self: center;
 	justify-self: center;
-`
+	`
 
 const InformationWrapper = styled.div`
-	grid-column: 3/7;
+	grid-column: 3/9;
 `
 
 const Span = styled.span`
@@ -102,8 +100,11 @@ interface values {
 	row?: string
 }
 const ButtonWrapper = styled.div<values>`
-	grid-column: 8/11;
+	grid-column: 9/10;
 	grid-row: ${props => props.row};
 	align-self: center;
 	justify-self: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
 `
