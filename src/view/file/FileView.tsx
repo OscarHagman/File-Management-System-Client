@@ -1,17 +1,36 @@
+import { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { SearchHandler } from '../../components/SearchHandler'
 import { UploadHandler } from '../../components/UploadHandler'
+import { SearchContext } from '../../shared/provider/SearchFileProvider'
 import { primaryColor, primaryFont } from '../../shared/styles/GlobalStyles'
+import neutral from '../../shared/images/neutral.png'
+import happy from '../../shared/images/happy.png'
+import sad from '../../shared/images/sad.png'
 
 export const FileView = () => {
+	const [searchResults] = useContext(SearchContext)
+	const [searchField, setSearchField] = useState<string>('')
+
+	const determineCloud = () => {
+		if (searchField && searchResults?.length != 0) {
+			return <Image src={happy} />
+		}
+		else if (searchResults?.length == 0 && searchField) {
+			return <Image src={sad} />
+		} else {
+			return <Image src={neutral} />
+		}
+	}
+
 	return (
 		<Wrapper>
 			<UploadPlacement>
 				<UploadHandler />
 			</UploadPlacement>
-			<Title>Codic Cloud ☁️</Title>
+			<Title>Codic Cloud {determineCloud()}</Title>
 			<Div>
-				<SearchHandler />
+				<SearchHandler searchField={searchField} setSearchField={setSearchField} />
 			</Div>
 		</Wrapper>
 	)
@@ -24,6 +43,11 @@ const Wrapper = styled.div`
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
 	grid-template-rows: repeat(10, 1fr);
+`
+
+const Image = styled.img`
+width: 70px;
+	padding: 2%;
 `
 
 const Title = styled.span`

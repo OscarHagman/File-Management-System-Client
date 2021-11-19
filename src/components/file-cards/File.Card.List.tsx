@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FileCard } from './File.Card'
+import { NoFileFound } from './NoFileFound'
 
 interface Props {
 	files: any,
@@ -8,7 +9,7 @@ interface Props {
 }
 
 export const FileCardList: React.FC<Props> = ({ files, searchTerm }) => {
-	if (files && files.length == 0 && searchTerm) return <h1>No files found</h1>
+	if (files && files.length == 0 && searchTerm) return <NoFileFound />
 
 	return (
 		<Wrapper>
