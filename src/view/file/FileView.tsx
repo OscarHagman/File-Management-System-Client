@@ -7,6 +7,7 @@ import { primaryColor, primaryFont } from '../../shared/styles/GlobalStyles'
 import neutral from '../../shared/images/neutral.png'
 import happy from '../../shared/images/happy.png'
 import sad from '../../shared/images/sad.png'
+import { fadeInOpacity } from '../../shared/styles/animations/fadeInOpacity'
 
 export const FileView = () => {
 	const [searchResults] = useContext(SearchContext)
@@ -46,8 +47,8 @@ const Wrapper = styled.div`
 `
 
 const Image = styled.img`
-width: 70px;
-	padding: 2%;
+	width: 70px;
+	padding: 2%;	
 `
 
 const Title = styled.span`

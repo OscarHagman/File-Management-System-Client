@@ -1,10 +1,11 @@
 import { Button } from '../Button'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
 import { useFileManagement } from '../../hooks/useFileManagement'
 import styled from 'styled-components'
 import { SearchContext } from '../../shared/provider/SearchFileProvider'
 import pdfFormat from '../../shared/images/format/pdf.png'
+import DeleteConfirmation from './DeleteConfirmation'
 
 interface Props {
 	title: string,
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fileSize, fileType }) => {
+	const [deleteDialog, setDeleteDialogen] = useState(false)
 	const [searchResults, setSearchResults] = useContext(SearchContext)
 	const { deleteFile } = useFileManagement()
 
@@ -38,6 +40,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 		const updatedResults = searchResults.filter((item: any) => item._id != fileId)
 		deleteFile(fileId) && setSearchResults(updatedResults)
 	}
+
 	return (
 		<Wrapper>
 			<Title>{title}</Title> <br />
@@ -53,8 +56,9 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			</InformationWrapper>
 			<ButtonWrapper row="2/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
-				<Button color={'#FF6663'} text={'delete'} onClick={() => deleteAndUpdateResults(fileId)} />
+				<Button color={'#FF6663'} text={'delete'} onClick={() => setDeleteDialogen(true)} />
 			</ButtonWrapper>
+			<DeleteConfirmation title={title} fileId={fileId} deleteDialog={deleteDialog} setDeleteDialog={setDeleteDialogen} />
 		</Wrapper>
 	)
 
