@@ -9,7 +9,7 @@ export const FileView = () => {
 			<UploadPlacement>
 				<UploadHandler />
 			</UploadPlacement>
-			<Title>Codic File Bank</Title>
+			<Title>Codic Cloud ☁️</Title>
 			<Div>
 				<SearchHandler />
 			</Div>
