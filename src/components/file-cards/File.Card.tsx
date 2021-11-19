@@ -4,6 +4,7 @@ import BackendAPIService from '../../shared/api/service/BackendAPIService'
 import { useFileManagement } from '../../hooks/useFileManagement'
 import styled from 'styled-components'
 import { SearchContext } from '../../shared/provider/SearchFileProvider'
+import pdfFormat from '../../shared/images/format/pdf.png'
 
 interface Props {
 	title: string,
@@ -37,11 +38,10 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 		const updatedResults = searchResults.filter((item: any) => item._id != fileId)
 		deleteFile(fileId) && setSearchResults(updatedResults)
 	}
-
 	return (
 		<Wrapper>
 			<Title>{title}</Title> <br />
-			<FileImage src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png" alt="file-type-icon" />
+			<FileImage src={pdfFormat} alt="file-type-icon" />
 			<InformationWrapper>
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
 				<Span>Category:</Span> <Span2>{category}</Span2> <br />
@@ -59,6 +59,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			</ButtonWrapper>
 		</Wrapper>
 	)
+
 }
 
 const Wrapper = styled.div`
@@ -80,8 +81,7 @@ const Title = styled.span`
 `
 
 const FileImage = styled.img`
-	width: 50%;
-	height: 50%;
+	width: 80%;
 	grid-column: 1/1;
 	grid-row: 1/4;
 	align-self: center;
