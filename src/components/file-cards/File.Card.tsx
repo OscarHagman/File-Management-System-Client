@@ -45,7 +45,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			<InformationWrapper>
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
 				<Span>Category:</Span> <Span2>{category}</Span2> <br />
-				<Span>Filetype:</Span> <Span2>{fileType}</Span2> <br />
+				<Span>Format:</Span> <Span2>{fileType}</Span2> <br />
 				<Span>Subject(s):</Span> <Span2>JavaScript, C#, Molntjänster</Span2> <br />
 				<Span>Uploaded:</Span> <Span2>2021/10/27</Span2> <br />
 				<Span2>{fileSize}</Span2> <br />
