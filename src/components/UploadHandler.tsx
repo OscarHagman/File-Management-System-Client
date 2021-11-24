@@ -6,6 +6,7 @@ import Button from './buttons/Button'
 import { UploadButton } from './buttons/Upload.Button'
 import Categories from './inputs/Categories'
 import FieldInput from './inputs/Field.Input'
+import Tags from './Tags'
 
 export const UploadHandler = () => {
 	const [uploadedFile, setFile] = useState<File | undefined>(undefined)
@@ -46,6 +47,7 @@ export const UploadHandler = () => {
 						setAuthor(e.currentTarget.value.toLocaleLowerCase())
 					}
 				} />
+				<Tags />
 				<Button text="Upload" action={submitFile} />
 			</>}
 		</div>
