@@ -1,10 +1,20 @@
 import * as React from 'react'
+import { inspect } from "util";
 import Chip from '@mui/material/Chip'
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 
 export default function Tags() {
+   const [value, setValue] = React.useState(null);
+
+   const onChange = React.useCallback(
+      (e: any, newValue: any) => {
+        setValue(newValue);
+      },
+      [setValue]
+    );
+
 	return (
 		<Stack spacing={3} sx={{ width: 500 }}>
 			<Autocomplete
@@ -12,6 +22,7 @@ export default function Tags() {
 				id="tags-filled"
 				options={searchTags.map((option) => option.searchTag)}
 				defaultValue={[searchTags[13].searchTag]}
+            onChange={onChange}
 				freeSolo
 				renderTags={(value: readonly string[], getTagProps) =>
 					value.map((option: string, index: number) => (
@@ -28,6 +39,7 @@ export default function Tags() {
 					/>
 				)}
 			/>
+         {inspect(value)}
 		</Stack>
 	)
 }
