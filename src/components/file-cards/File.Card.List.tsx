@@ -1,30 +1,37 @@
 import React from 'react'
-import FileCard from "./File.Card"
+import styled from 'styled-components'
+import { FileCard } from './File.Card'
+import { NoFileFound } from './NoFileFound'
 
 interface Props {
-    files: any,
-    deleteFileCard: any
+	files: any,
+	searchTerm: string
 }
 
-const FileCardList: React.FC<Props> = ({ files, deleteFileCard }) => {
-    if (!files) return <div></div>
+export const FileCardList: React.FC<Props> = ({ files, searchTerm }) => {
+	if (files && files.length == 0 && searchTerm) return <NoFileFound />
 
-    return (
-        <div>
-            {files.map((file: any, index: number) => {
-                return (
-                    <FileCard
-                        key={index}
-                        title={file.title}
-                        author={file.author}
-                        category={file.category}
-                        fileId={file._id}
-                        onDelete={(fileId: string) => deleteFileCard(fileId)}
-                    />
-                )
-            })}
-        </div>
-    )
+	return (
+		<Wrapper>
+			{files && files.map((item: any, index: number) => {
+				return (
+					<FileCard
+						key={index}
+						title={item.title}
+						author={item.author}
+						category={item.category}
+						subjects={item.subjects}
+						fileId={item._id}
+						fileSize={item.fileSize}
+						fileType={item.fileType}
+						numOfDownloads={item.numOfDownloads}
+					/>
+				)
+			})}
+		</Wrapper>
+	)
 }
 
-export default FileCardList
+const Wrapper = styled.div`
+margin: 1%;
+`

@@ -7,25 +7,25 @@ interface Props {
 }
 
 const Categories: React.FC<Props> = ({ title, categories, categoryChange }) => {
-    return (
-        <div>
-        <h1>{title}</h1>
-        {categories.map((category, index) => {
-            return (
-                <div key={index}>
-                    <input
-                        type="radio"
-                        id={category}
-                        name="category"
-                        value={category}
-                        onChange={categoryChange}
-                    />
-                    <label htmlFor={category}>{category}</label>
-                </div>
-            )
-        })}
-        </div>
-    )
+	return (
+		<div>
+			<h1>{title}</h1>
+			{categories.map((category, index) => {
+				return (
+					<div key={index}>
+						<input
+							type="radio"
+							id={category}
+							name="category"
+							value={category}
+							onChange={categoryChange}
+						/>
+						<label htmlFor={category}>{category}</label>
+					</div>
+				)
+			})}
+		</div>
+	)
 }
 
 export default Categories
