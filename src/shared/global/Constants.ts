@@ -1,13 +1,14 @@
 enum Fields {
-    TITLE = 'title',
-    AUTHOR = 'author',
-    CATEGORY = 'category',
-    FILE = 'file',
-    SEARCH = 'search'
+	TITLE = 'title',
+	AUTHOR = 'author',
+	CATEGORY = 'category',
+	FILE = 'file',
+	SEARCH = 'search',
+	SUBJECTS = 'subjects'
 }
 
 enum URLs {
-    baseURL = 'http://127.0.0.1:3001'
+	baseURL = 'http://127.0.0.1:3001'
 }
 
 const CATEGORIES = [

@@ -1,6 +1,6 @@
 import http from '../BackendAPI'
 import Constants from '../../global/Constants'
-const { TITLE, AUTHOR, CATEGORY, FILE } = Constants.Fields
+const { TITLE, AUTHOR, CATEGORY, FILE, SUBJECTS } = Constants.Fields
 
 
 
@@ -8,7 +8,7 @@ const uploadFile = async (author: string, category: string, file: any, searchTag
 	const formData = new FormData()
 	formData.append(TITLE, file.name)
 	formData.append(AUTHOR, author)
-	formData.append('subjects', searchTags)
+	formData.append(SUBJECTS, searchTags)
 	formData.append(CATEGORY, category)
 	formData.append(FILE, file)
 
