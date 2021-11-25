@@ -40,6 +40,10 @@ const fuzzySearchFiles = (searchField: string) => {
 // 	return http.get('/get-files/title')
 // }
 
+const getFileById = (fileId: string) => {
+	return http.get(`/get-file/${fileId}`)
+}
+
 // const updateFile = (fileId: number): object => {
 // 	return http.put(`/update-file/${fileId}`)
 // }
@@ -55,6 +59,7 @@ export default {
 	// getAllFiles,
 	// getAllFilesByCategory,
 	// getAllFilesByTitle,
+	getFileById,
 	// updateFile,
 	deleteFile
 }
