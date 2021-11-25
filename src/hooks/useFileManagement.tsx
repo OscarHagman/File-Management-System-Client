@@ -11,14 +11,15 @@ export const useFileManagement: any = () => {
 		try {
 			const { data } = await BackendAPIService.fuzzySearchFiles(searchField)
 			setSearchResults(data)
+			console.log(data)
 		} catch (error) {
 			console.log(error)
 		}
 	}
 
-	const uploadFile = async (author: any, category: any, uploadedFile: any) => {
+	const uploadFile = async (author: any, category: any, uploadedFile: any, subjects: []) => {
 		try {
-			BackendAPIService.uploadFile(author, category, uploadedFile),
+			BackendAPIService.uploadFile(author, category, uploadedFile, subjects),
 			toast.success('File successfully uploaded')
 		} catch (error) {
 			console.log(error)

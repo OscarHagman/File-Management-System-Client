@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react'
 import { inspect } from 'util'
 import Chip from '@mui/material/Chip'
@@ -5,12 +6,11 @@ import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 
-export default function Tags() {
-	const [value, setValue] = React.useState(null)
+export default function Tags(props: { subjects: any, setSubjects: any }) {
 
 	const onChange = React.useCallback((e: any, newValue: any) => {
-		setValue(newValue)
-	}, [setValue])
+		props.setSubjects(newValue)
+	}, [props.setSubjects])
 
 	return (
 		<Stack spacing={3} sx={{ width: 500 }}>
@@ -20,8 +20,8 @@ export default function Tags() {
 				options={listOfTags.map((option) => option.searchTag)}
 				onChange={onChange}
 				freeSolo
-				renderTags={(value: readonly string[], getTagProps) =>
-					value.map((option: string, index: number) => (
+				renderTags={(subjects: readonly string[], getTagProps) =>
+					subjects.map((option: string, index: number) => (
 						// eslint-disable-next-line react/jsx-key
 						<Chip variant="outlined" label={option} {...getTagProps({ index })} />
 					))
@@ -35,7 +35,7 @@ export default function Tags() {
 					/>
 				)}
 			/>
-			{inspect(value)}
+			{inspect(props.subjects)}
 		</Stack>
 	)
 }
