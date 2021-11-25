@@ -13,16 +13,17 @@ export const FileCardList: React.FC<Props> = ({ files, searchTerm }) => {
 
 	return (
 		<Wrapper>
-			{files && files.map((file: any, index: number) => {
+			{files && files.map((item: any, index: number) => {
 				return (
 					<FileCard
 						key={index}
-						title={file.title}
-						author={file.author}
-						category={file.category}
-						fileId={file._id}
-						fileSize={file.fileSize}
-						fileType={file.fileType}
+						title={item.title}
+						author={item.author}
+						category={item.category}
+						subjects={item.subjects}
+						fileId={item._id}
+						fileSize={item.fileSize}
+						fileType={item.fileType}
 					/>
 				)
 			})}

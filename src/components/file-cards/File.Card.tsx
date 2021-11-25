@@ -12,13 +12,14 @@ interface Props {
 	author: string,
 	category: string,
 	fileId: string,
+	subjects: any,
 	fileSize: string
 	fileType: string
 	createdAt?: Date,
 	updateAt?: Date,
 }
 
-export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fileSize, fileType }) => {
+export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fileSize, fileType, subjects }) => {
 	const [deleteDialog, setDeleteDialogen] = useState(false)
 	const [searchResults, setSearchResults] = useContext(SearchContext)
 	const { deleteFile } = useFileManagement()
@@ -53,6 +54,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 				<Span>Uploaded:</Span> <Span2>2021/10/27</Span2> <br />
 				<Span2>{fileSize}</Span2> <br />
 				<Span2>{Math.floor(Math.random() * 10000) + 1} downloads</Span2> <br />
+				<span>subjects: {subjects}</span>
 			</InformationWrapper>
 			<ButtonWrapper row="2/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
