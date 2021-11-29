@@ -7,7 +7,7 @@ import unknownFormat from "../images/format/unknown-mail.png"
 
 const fileFormats: any = {
 	docx: {
-        formatString: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        formatString: "",
         formatImage: docxFormat
     },
 	document: {
