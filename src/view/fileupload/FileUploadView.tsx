@@ -1,4 +1,4 @@
-import { UploadHandler } from 'components/UploadHandler'
+import { UploadHandler } from 'view/fileupload/components/UploadHandler'
 
 export const FileUploadView = () => {
 	return (

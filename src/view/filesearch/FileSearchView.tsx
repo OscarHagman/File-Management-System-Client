@@ -1,7 +1,6 @@
 import { primaryColor, primaryFont } from '../../shared/styles/GlobalStyles'
 import { useContext, useState } from 'react'
 import { SearchHandler } from '../../components/SearchHandler'
-import { UploadHandler } from '../../components/UploadHandler'
 import { SearchContext } from '../../shared/provider/SearchFileProvider'
 import neutral from '../../shared/images/neutral.png'
 import styled from 'styled-components'
@@ -25,9 +24,6 @@ export const FileSearchView = () => {
 
 	return (
 		<Wrapper>
-		{/* 	<UploadPlacement>
-				<UploadHandler />
-			</UploadPlacement> */}
 			<Title>Codic Cloud {determineCloud()}</Title>
 			<Div>
 				<SearchHandler searchField={searchField} setSearchField={setSearchField} />
@@ -57,10 +53,6 @@ const Title = styled.span`
 	font-family: ${primaryFont};
 	color: ${primaryColor};
 	font-size: 3rem;
-`
-
-const UploadPlacement = styled.div`
-	position: absolute;
 `
 
 const Div = styled.div`
