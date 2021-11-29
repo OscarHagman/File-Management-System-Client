@@ -24,4 +24,5 @@ const Constants = {
 	CATEGORIES
 }
 
+
 export default Constants
