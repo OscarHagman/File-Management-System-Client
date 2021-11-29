@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import happy from '../../shared/images/happy.png'
 import sad from '../../shared/images/sad.png'
 
-export const FileView = () => {
+export const FileSearchView = () => {
 	const [searchResults] = useContext(SearchContext)
 	const [searchField, setSearchField] = useState<string>('')
 
@@ -25,9 +25,9 @@ export const FileView = () => {
 
 	return (
 		<Wrapper>
-			<UploadPlacement>
+		{/* 	<UploadPlacement>
 				<UploadHandler />
-			</UploadPlacement>
+			</UploadPlacement> */}
 			<Title>Codic Cloud {determineCloud()}</Title>
 			<Div>
 				<SearchHandler searchField={searchField} setSearchField={setSearchField} />

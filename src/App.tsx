@@ -1,7 +1,8 @@
 import { SearchFileProvider } from './shared/provider/SearchFileProvider'
-import { FileView } from './view/file/FileView'
 import { GlobalStyles } from './shared/styles/GlobalStyles'
 import { ToastifyConfigurations } from './shared/configurations/ToastifyConfigurations'
+import { Routing } from './routes/Routing'
+import { Navigation } from 'components/navigation/Navigation'
 
 export const App = () => {
 	return (
@@ -9,7 +10,9 @@ export const App = () => {
 			<GlobalStyles />
 			<ToastifyConfigurations />
 			<SearchFileProvider>
-				<FileView />
+				<Routing>
+					<Navigation />
+				</Routing>
 			</SearchFileProvider>
 		</>
 	)

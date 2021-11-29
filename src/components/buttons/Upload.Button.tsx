@@ -23,7 +23,7 @@ export const UploadButton: React.FC<Props> = ({ text, handleFile }) => {
 
 	return (
 		<Wrapper>
-			<Button text={'upload'} onClick={handleClick} />
+			<Button text={'uploadxxx'} onClick={handleClick} />
 			<input
 				type="file"
 				ref={hiddenFileInput}
