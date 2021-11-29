@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
-import { useFileManagement } from '../../../hooks/useFileManagement'
+import { useFileManagement } from 'hooks/useFileManagement'
 import { useNavigate } from 'react-router'
 import { Button } from 'components/Button'
-import Constants from '../../../shared/global/Constants'
-import Categories from '../../../components/inputs/Categories'
-import FieldInput from '../../../components/inputs/Field.Input'
-import Tags from './Tags'
 import RoutingPath from 'routes/RoutingPath'
+import Categories from 'components/inputs/Categories'
+import FieldInput from 'components/inputs/Field.Input'
+import Constants from 'shared/global/Constants'
+import Tags from './Tags'
 
 export const UploadHandler = () => {
 	const navigate = useNavigate()
