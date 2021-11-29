@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router'
 import { useFileManagement } from '../../../hooks/useFileManagement'
+import { useNavigate } from 'react-router'
+import { Button } from 'components/Button'
 import Constants from '../../../shared/global/Constants'
 import Categories from '../../../components/inputs/Categories'
 import FieldInput from '../../../components/inputs/Field.Input'
 import Tags from './Tags'
 import RoutingPath from 'routes/RoutingPath'
-import { Button } from 'components/Button'
 
 export const UploadHandler = () => {
 	const navigate = useNavigate()
@@ -52,24 +52,21 @@ export const UploadHandler = () => {
 				onChange={handleChange}
 				style={{ display: 'none' }}
 			/>
-			{/* <UploadButton text="Upload file" handleFile={(file: File) => { setFile(file) }} /> */}
-			<>
-				<Categories
-					title={uploadedFile?.name || ''}
-					categories={Constants.CATEGORIES}
-					categoryChange={
-						(e: React.ChangeEvent<HTMLInputElement>): void => {
-							setCategory(e.currentTarget.value)
-						}
-					} />
-				<FieldInput text="Author" searchChange={
-					(e: React.FormEvent<HTMLInputElement>) => {
-						setAuthor(e.currentTarget.value.toLocaleLowerCase())
+			<Categories
+				title={uploadedFile?.name || ''}
+				categories={Constants.CATEGORIES}
+				categoryChange={
+					(e: React.ChangeEvent<HTMLInputElement>): void => {
+						setCategory(e.currentTarget.value)
 					}
 				} />
-				<Tags subjects={subjects} setSubjects={setSubjects} />
-				<Button text={'send file to the cloud'} onClick={() => submitFile()} />
-			</>
+			<FieldInput text="Author" searchChange={
+				(e: React.FormEvent<HTMLInputElement>) => {
+					setAuthor(e.currentTarget.value.toLocaleLowerCase())
+				}
+			} />
+			<Tags subjects={subjects} setSubjects={setSubjects} />
+			<Button text={'send file to the cloud'} onClick={() => submitFile()} />
 		</div>
 	)
 }
