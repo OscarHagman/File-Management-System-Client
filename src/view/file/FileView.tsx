@@ -1,13 +1,12 @@
+import { primaryColor, primaryFont } from '../../shared/styles/GlobalStyles'
 import { useContext, useState } from 'react'
-import styled from 'styled-components'
 import { SearchHandler } from '../../components/SearchHandler'
 import { UploadHandler } from '../../components/UploadHandler'
 import { SearchContext } from '../../shared/provider/SearchFileProvider'
-import { primaryColor, primaryFont } from '../../shared/styles/GlobalStyles'
 import neutral from '../../shared/images/neutral.png'
+import styled from 'styled-components'
 import happy from '../../shared/images/happy.png'
 import sad from '../../shared/images/sad.png'
-import { fadeInOpacity } from '../../shared/styles/animations/fadeInOpacity'
 
 export const FileView = () => {
 	const [searchResults] = useContext(SearchContext)
