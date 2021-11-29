@@ -63,6 +63,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			<Title>{title}</Title> <br />
 			<FileImage src={pdfFormat} alt="file-type-icon" />
 			<InformationWrapper>
+				<Badge subjects={subjects} />
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
 				<Span>Category:</Span> <Span2>{category}</Span2> <br />
 				<Span>Format:</Span> <Span2>{fileType}</Span2> <br />
@@ -70,7 +71,6 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 				<Span>Uploaded:</Span> <Span2>2021/10/27</Span2> <br />
 				<Span2>{fileSize}</Span2> <br />
 				<Span2>{downloads} downloads</Span2> <br />
-				<Badge subjects={subjects} />
 			</InformationWrapper>
 			<ButtonWrapper row="2/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
@@ -93,7 +93,7 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.span`
-	grid-column: 5/7;
+	grid-column: 1/11;
 	grid-row: 1/1;
 	align-self: center;
 	justify-self: center;
