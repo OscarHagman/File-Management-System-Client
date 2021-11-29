@@ -42,7 +42,7 @@ export default function AlertDialog(props: { title: string, deleteDialog: any, s
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText id="alert-dialog-description">
-                  You are about to permanently delete <b>{props.title}</b>
+                  You are about to permanently delete <br /><b>{props.title}</b>
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>

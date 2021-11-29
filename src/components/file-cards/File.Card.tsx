@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import { SearchContext } from '../../shared/provider/SearchFileProvider'
 import pdfFormat from '../../shared/images/format/pdf.png'
 import DeleteConfirmation from './DeleteConfirmation'
+import Chip from './Badge'
+import Badge from './Badge'
 
 interface Props {
 	title: string,
@@ -37,7 +39,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 				link.click()
 			})
 			.catch((error) => console.log('ERROR:', error))
-		
+
 		BackendAPIService.getFileById(fileId)
 			.then((response: any) => {
 				setDownloads(response.data.numOfDownloads)
@@ -55,14 +57,13 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			<Title>{title}</Title> <br />
 			<FileImage src={pdfFormat} alt="file-type-icon" />
 			<InformationWrapper>
+				<Badge subjects={subjects} />
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
 				<Span>Category:</Span> <Span2>{category}</Span2> <br />
 				<Span>Format:</Span> <Span2>{fileType}</Span2> <br />
-				<Span>Subject(s):</Span> <Span2>JavaScript, C#, Molntjänster</Span2> <br />
 				<Span>Uploaded:</Span> <Span2>2021/10/27</Span2> <br />
 				<Span2>{fileSize}</Span2> <br />
 				<Span2>{downloads} downloads</Span2> <br />
-				<span>subjects: {subjects}</span>
 			</InformationWrapper>
 			<ButtonWrapper row="2/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
@@ -85,7 +86,7 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.span`
-	grid-column: 5/7;
+	grid-column: 1/11;
 	grid-row: 1/1;
 	align-self: center;
 	justify-self: center;
