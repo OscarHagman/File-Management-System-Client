@@ -37,7 +37,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 				link.click()
 			})
 			.catch((error) => console.log('ERROR:', error))
-		
+
 		BackendAPIService.getFileById(fileId)
 			.then((response: any) => {
 				setDownloads(response.data.numOfDownloads)
@@ -50,6 +50,12 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 		deleteFile(fileId) && setSearchResults(updatedResults)
 	}
 
+	const displaySubjects = () => {
+		return (
+			subjects.map((item: any) => <Span2 key={Math.random()}>{item}</Span2>)
+		)
+	}
+
 	return (
 		<Wrapper>
 			<Title>{title}</Title> <br />
@@ -58,11 +64,10 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
 				<Span>Category:</Span> <Span2>{category}</Span2> <br />
 				<Span>Format:</Span> <Span2>{fileType}</Span2> <br />
-				<Span>Subject(s):</Span> <Span2>JavaScript, C#, Molntjänster</Span2> <br />
+				<Span>Subject(s):</Span> <Span2>{displaySubjects()}</Span2> <br />
 				<Span>Uploaded:</Span> <Span2>2021/10/27</Span2> <br />
 				<Span2>{fileSize}</Span2> <br />
 				<Span2>{downloads} downloads</Span2> <br />
-				<span>subjects: {subjects}</span>
 			</InformationWrapper>
 			<ButtonWrapper row="2/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
