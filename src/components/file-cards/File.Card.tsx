@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import { SearchContext } from '../../shared/provider/SearchFileProvider'
 import pdfFormat from '../../shared/images/format/pdf.png'
 import DeleteConfirmation from './DeleteConfirmation'
+import Chip from './Badge'
+import Badge from './Badge'
 
 interface Props {
 	title: string,
@@ -68,6 +70,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 				<Span>Uploaded:</Span> <Span2>2021/10/27</Span2> <br />
 				<Span2>{fileSize}</Span2> <br />
 				<Span2>{downloads} downloads</Span2> <br />
+				<Badge subjects={subjects} />
 			</InformationWrapper>
 			<ButtonWrapper row="2/2">
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
