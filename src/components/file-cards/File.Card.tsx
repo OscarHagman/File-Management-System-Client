@@ -8,6 +8,7 @@ import pdfFormat from '../../shared/images/format/pdf.png'
 import DeleteConfirmation from './DeleteConfirmation'
 import Chip from './Badge'
 import Badge from './Badge'
+import { getFileFormatPNG } from "../../shared/global/utils"
 
 interface Props {
 	title: string,
@@ -55,7 +56,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 	return (
 		<Wrapper>
 			<Title>{title}</Title> <br />
-			<FileImage src={pdfFormat} alt="file-type-icon" />
+			<FileImage src={getFileFormatPNG(fileType)} alt="file-type-icon" />
 			<InformationWrapper>
 				<Badge subjects={subjects} />
 				<Span>Author:</Span> <Span2>{author}</Span2> <br />
