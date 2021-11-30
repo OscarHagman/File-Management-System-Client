@@ -27,18 +27,19 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.span`
-	grid-column: 4/8;
+	grid-column: 5/7;
 	grid-row: 1/1;
 	justify-self: center;
 	align-self:center;
 	font-family: ${primaryFont};
 	color: ${primaryColor};
 	font-size: 3rem;
+	border-bottom: 3px solid orange;
 `
 
 const Image = styled.img`
 	width: 80px;
-	grid-column: 9/9;
+	grid-column: 7/8;
 	align-self:center;
 	justify-self: center;
 	animation-name: ${floatingEffect};
