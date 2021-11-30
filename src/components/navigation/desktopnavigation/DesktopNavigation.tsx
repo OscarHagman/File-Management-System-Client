@@ -4,6 +4,7 @@ import { Button } from 'components/Button'
 import RoutingPath from 'routes/RoutingPath'
 import styled from 'styled-components'
 import neutral from 'shared/images/neutral.png'
+import { floatingEffect } from 'shared/styles/animations/floatingEffect'
 
 
 export const DesktopNavigation = () => {
@@ -40,6 +41,10 @@ const Image = styled.img`
 	grid-column: 9/9;
 	align-self:center;
 	justify-self: center;
+	animation-name: ${floatingEffect};
+	animation-duration: 5s;
+   animation-iteration-count: infinite;
+   animation-timing-function: ease-in-out;
 `
 
 const ButtonPlacement = styled.div`
