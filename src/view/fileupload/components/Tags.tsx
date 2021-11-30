@@ -35,7 +35,6 @@ export default function Tags(props: { subjects: any, setSubjects: any }) {
 					/>
 				)}
 			/>
-			{inspect(props.subjects)}
 		</Stack>
 	)
 }
