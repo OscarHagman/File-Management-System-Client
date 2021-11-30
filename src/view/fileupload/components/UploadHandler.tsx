@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { useFileManagement } from 'hooks/useFileManagement'
 import { useNavigate } from 'react-router'
+import { TextField } from '@mui/material'
 import { Button } from 'components/Button'
 import RoutingPath from 'routes/RoutingPath'
 import Categories from 'components/inputs/Categories'
-import FieldInput from 'components/inputs/Field.Input'
 import Constants from 'shared/global/Constants'
 import Tags from './Tags'
-import { TextField } from '@mui/material'
 
 export const UploadHandler = () => {
 	const navigate = useNavigate()
