@@ -12,7 +12,7 @@ export default function Tags(props: { subjects: any, setSubjects: any }) {
 	}, [props.setSubjects])
 
 	return (
-		<Stack spacing={3} sx={{ width: 500 }}>
+		<Stack spacing={3}>
 			<Autocomplete
 				multiple
 				id="tags-filled"
@@ -29,7 +29,7 @@ export default function Tags(props: { subjects: any, setSubjects: any }) {
 					<TextField
 						{...params}
 						variant="filled"
-						label="Subject ñ Search Labels"
+						label="Subject(s)"
 						required
 						placeholder="add new subject?"
 					/>

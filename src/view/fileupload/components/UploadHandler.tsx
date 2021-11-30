@@ -6,6 +6,7 @@ import { Button } from 'components/Button'
 import RoutingPath from 'routes/RoutingPath'
 import Categories from 'components/inputs/Categories'
 import Constants from 'shared/global/Constants'
+import styled from 'styled-components'
 import Tags from './Tags'
 
 export const UploadHandler = () => {
@@ -45,7 +46,7 @@ export const UploadHandler = () => {
 	}, [])
 
 	return (
-		<div>
+		<Wrapper>
 			<input
 				type="file"
 				ref={hiddenFileInput}
@@ -64,6 +65,14 @@ export const UploadHandler = () => {
 				onChange={(e) => setAuthor(e.target.value.toLocaleLowerCase())} />
 			<Tags subjects={subjects} setSubjects={setSubjects} />
 			<Button text={'send file to the cloud'} onClick={() => submitFile()} />
-		</div>
+		</Wrapper>
 	)
 }
+
+const Wrapper = styled.div`
+	display: grid;
+	width: 60%;
+	margin: 0 auto;
+	grid-gap: 10%;
+	margin-top: 10%;
+`
