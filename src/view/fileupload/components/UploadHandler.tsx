@@ -7,6 +7,7 @@ import Categories from 'components/inputs/Categories'
 import FieldInput from 'components/inputs/Field.Input'
 import Constants from 'shared/global/Constants'
 import Tags from './Tags'
+import { TextField } from '@mui/material'
 
 export const UploadHandler = () => {
 	const navigate = useNavigate()
@@ -55,16 +56,13 @@ export const UploadHandler = () => {
 			<Categories
 				title={uploadedFile?.name || ''}
 				categories={Constants.CATEGORIES}
-				categoryChange={
-					(e: React.ChangeEvent<HTMLInputElement>): void => {
-						setCategory(e.currentTarget.value)
-					}
-				} />
-			<FieldInput text="Author" searchChange={
-				(e: React.FormEvent<HTMLInputElement>) => {
-					setAuthor(e.currentTarget.value.toLocaleLowerCase())
-				}
-			} />
+				categoryChange={(e: React.ChangeEvent<HTMLInputElement>): void => { setCategory(e.currentTarget.value) }} />
+			<TextField
+				required
+				id="filled-required"
+				label="Author"
+				variant="filled"
+				onChange={(e) => setAuthor(e.target.value.toLocaleLowerCase())} />
 			<Tags subjects={subjects} setSubjects={setSubjects} />
 			<Button text={'send file to the cloud'} onClick={() => submitFile()} />
 		</div>

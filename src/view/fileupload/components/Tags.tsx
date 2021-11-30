@@ -30,6 +30,7 @@ export default function Tags(props: { subjects: any, setSubjects: any }) {
 						{...params}
 						variant="filled"
 						label="Subject ñ Search Labels"
+						required
 						placeholder="add new subject?"
 					/>
 				)}
