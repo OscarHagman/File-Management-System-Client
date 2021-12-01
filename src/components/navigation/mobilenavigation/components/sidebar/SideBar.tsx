@@ -4,7 +4,7 @@ export const SideBar = (props: { drawerIsOpen: boolean, drawerHandler: (handler:
 
 	return (
 		<Drawer isOpen={props.drawerIsOpen}>
-			<h1>lols</h1>
+			<h1>{'lols'}</h1>
 		</Drawer>
 	)
 }

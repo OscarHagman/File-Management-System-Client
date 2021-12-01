@@ -16,12 +16,11 @@ const Categories: React.FC<Props> = ({ title, categories, categoryChange }) => {
 				return (
 					<div key={index}>
 						<input
-							type="radio"
+							type='radio'
 							id={category}
-							name="category"
+							name='category'
 							value={category}
-							onChange={categoryChange}
-						/>
+							onChange={categoryChange}/>
 						<label htmlFor={category}>{category}</label>
 					</div>
 				)

@@ -34,21 +34,20 @@ export default function AlertDialog(props: { title: string, deleteDialog: any, s
 			<Dialog
 				open={props.deleteDialog}
 				onClose={handleClose}
-				aria-labelledby="alert-dialog-title"
-				aria-describedby="alert-dialog-description"
-			>
-				<DialogTitle id="alert-dialog-title">
+				aria-labelledby='alert-dialog-title'
+				aria-describedby='alert-dialog-description'>
+				<DialogTitle id='alert-dialog-title'>
 					{'Are you sure?'}
 				</DialogTitle>
 				<DialogContent>
-					<DialogContentText id="alert-dialog-description">
-                  You are about to permanently delete <br /><b>{props.title}</b>
+					<DialogContentText id='alert-dialog-description'>
+						{'You are about to permanently delete'} <br /><b>{props.title}</b>
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={handleClose}>cancel</Button>
-					<Button onClick={deleteAndUpdateResults} autoFocus>
-                  DELETE
+					<Button onClick={handleClose}>{'cancel'}</Button>
+					<Button onClick={deleteAndUpdateResults} autoFocus={true}>
+						{'DELETE'}
 					</Button>
 				</DialogActions>
 			</Dialog>

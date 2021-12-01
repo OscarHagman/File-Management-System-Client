@@ -15,7 +15,7 @@ export const DesktopNavigation = () => {
 			<ButtonPlacement>
 				<Button text={'UPLOAD'} onClick={() => navigate(RoutingPath.uploadView)} />
 			</ButtonPlacement>
-			<Title>Codic Cloud</Title>
+			<Title>{'Codic Cloud'}</Title>
 			<Image src={neutral} />
 		</Wrapper>
 	)

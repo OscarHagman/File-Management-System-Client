@@ -48,20 +48,19 @@ export const UploadHandler = () => {
 	return (
 		<Wrapper>
 			<input
-				type="file"
+				type='file'
 				ref={hiddenFileInput}
 				onChange={handleChange}
-				style={{ display: 'none' }}
-			/>
+				style={{ display: 'none' }}/>
 			<Categories
 				title={uploadedFile?.name || ''}
 				categories={Constants.CATEGORIES}
 				categoryChange={(e: React.ChangeEvent<HTMLInputElement>): void => { setCategory(e.currentTarget.value) }} />
 			<TextField
-				required
-				id="filled-required"
-				label="Author"
-				variant="filled"
+				required={true}
+				id='filled-required'
+				label='Author'
+				variant='filled'
 				onChange={(e) => setAuthor(e.target.value.toLocaleLowerCase())} />
 			<Tags subjects={subjects} setSubjects={setSubjects} />
 			<Button text={'send file to the cloud'} onClick={() => submitFile()} />

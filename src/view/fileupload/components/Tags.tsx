@@ -14,27 +14,24 @@ export default function Tags(props: { subjects: any, setSubjects: any }) {
 	return (
 		<Stack spacing={3}>
 			<Autocomplete
-				multiple
-				id="tags-filled"
+				multiple={true}
+				id='tags-filled'
 				options={listOfTags.map((option) => option.searchTag)}
 				onChange={onChange}
-				freeSolo
+				freeSolo={true}
 				renderTags={(subjects: readonly string[], getTagProps) =>
 					subjects.map((option: string, index: number) => (
 						// eslint-disable-next-line react/jsx-key
-						<Chip variant="outlined" label={option} {...getTagProps({ index })} />
-					))
-				}
+						<Chip variant='outlined' label={option} {...getTagProps({ index })} />
+					))}
 				renderInput={(params) => (
 					<TextField
 						{...params}
-						variant="filled"
-						label="Subject(s)"
-						required
-						placeholder="add new subject?"
-					/>
-				)}
-			/>
+						variant='filled'
+						label='Subject(s)'
+						required={true}
+						placeholder='add new subject?'/>
+				)}/>
 		</Stack>
 	)
 }
