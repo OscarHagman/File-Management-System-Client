@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Spinner } from './Spinner'
 import { MouseEvent } from 'react'
-import { primaryColor } from '../shared/styles/GlobalStyles'
+import { primaryColor, secondaryColor } from '../shared/styles/GlobalStyles'
 import styled from 'styled-components'
 
 export interface IButton {
