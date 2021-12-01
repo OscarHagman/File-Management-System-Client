@@ -1,6 +1,4 @@
-import React, { useContext, useState } from 'react'
-import { useFileManagement } from '../../hooks/useFileManagement'
-import { SearchContext } from '../../shared/provider/SearchFileProvider'
+import React, { useState } from 'react'
 import { Button } from '../Button'
 import DeleteConfirmation from './DeleteConfirmation'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
@@ -24,8 +22,6 @@ interface Props {
 export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fileSize, fileType, subjects, numOfDownloads }) => {
 	const [deleteDialog, setDeleteDialogen] = useState(false)
 	const [downloads, setDownloads] = useState(numOfDownloads)
-	const [searchResults, setSearchResults] = useContext(SearchContext)
-	const { deleteFile } = useFileManagement()
 
 	const downloadFile = () => {
 		BackendAPIService.downloadFile(fileId)
@@ -46,10 +42,10 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			.catch((error) => console.log('ERROR:', error))
 	}
 
-	const deleteAndUpdateResults = (fileId: string) => {
+/* 	const deleteAndUpdateResults = (fileId: string) => {
 		const updatedResults = searchResults.filter((item: any) => item._id != fileId)
 		deleteFile(fileId) && setSearchResults(updatedResults)
-	}
+	} */
 
 	return (
 		<Wrapper>

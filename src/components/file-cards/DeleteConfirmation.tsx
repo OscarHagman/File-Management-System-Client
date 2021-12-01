@@ -12,9 +12,9 @@ export default function AlertDialog(props: { title: string, deleteDialog: any, s
 	const [searchResults, setSearchResults] = React.useContext(SearchContext)
 	const { deleteFile } = useFileManagement()
 
-	const handleClickOpen = () => {
+/* 	const handleClickOpen = () => {
 		props.setDeleteDialog(true)
-	}
+	} */
 
 	const handleClose = () => {
 		props.setDeleteDialog(false)

@@ -5,7 +5,7 @@ import { SearchContext } from '../shared/provider/SearchFileProvider'
 
 
 export const useFileManagement: any = () => {
-	const [searchResults, setSearchResults] = useContext(SearchContext)
+	const [setSearchResults] = useContext(SearchContext)
 
 	const searchFiles = async (searchField: string) => {
 		try {
