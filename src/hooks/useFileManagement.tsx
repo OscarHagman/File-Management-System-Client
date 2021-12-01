@@ -5,7 +5,7 @@ import { SearchContext } from '../shared/provider/SearchFileProvider'
 
 
 export const useFileManagement: any = () => {
-	const [setSearchResults] = useContext(SearchContext)
+	const [searchResults, setSearchResults] = useContext(SearchContext)
 
 	const searchFiles = async (searchField: string) => {
 		try {
@@ -20,7 +20,7 @@ export const useFileManagement: any = () => {
 	const uploadFile = async (author: any, category: any, uploadedFile: any, subjects: any) => {
 		try {
 			BackendAPIService.uploadFile(author, category, uploadedFile, subjects),
-			toast.success('File successfully uploaded')
+				toast.success('File successfully uploaded')
 		} catch (error) {
 			console.log(error)
 		}
