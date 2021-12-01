@@ -44,7 +44,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			.then((response: any) => {
 				setDownloads(response.data.numOfDownloads)
 			})
-			.catch((error) => console.log("ERROR:", error))
+			.catch((error) => console.log('ERROR:', error))
 	}
 
 	const deleteAndUpdateResults = (fileId: string) => {
