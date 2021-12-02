@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { useFileManagement } from 'hooks/useFileManagement'
 import { useNavigate } from 'react-router'
-import { TextField } from '@mui/material'
 import { Form, Formik } from 'formik'
 import { Button } from 'components/Button'
 import RoutingPath from 'routes/RoutingPath'
-import Categories from 'components/inputs/Categories'
+import Categories from 'view/fileupload/components/Categories'
 import Constants from 'shared/global/Constants'
 import styled from 'styled-components'
 import Tags from './Tags'
@@ -18,25 +17,25 @@ export const UploadHandler = () => {
 	const hiddenFileInput: any = useRef(null)
 	const [uploadedFile, setFile] = useState<File | undefined>(undefined)
 	const [category, setCategory] = useState<string>('Assignment')
-	const [author, setAuthor] = useState<string>('')
+	/* const [author, setAuthor] = useState<string>('') */
 	const [subjects, setSubjects] = useState([])
 
-	const checkFormValid = (): boolean => {
+	/* const checkFormValid = (): boolean => {
 		return (uploadedFile && category && author) ? true : false
-	}
-
-	const submitFile = () => {
-	/* 	if (checkFormValid()) { */
-			uploadFile(author, category, uploadedFile, subjects)
-			setFile(undefined)
-			setCategory('')
-			setAuthor('')
-			navigate(RoutingPath.searchView)
-		}
-		/* else {
-			alert('All fields has to be filled')
-		}
 	} */
+
+	const submitFile = (values: any) => {
+		/* 	if (checkFormValid()) { */
+		uploadFile(values.author.toLowerCase(), category, uploadedFile, subjects)
+		setFile(undefined)
+		setCategory('')
+		/* 	setAuthor('') */
+		navigate(RoutingPath.searchView)
+	}
+	/* else {
+		alert('All fields has to be filled')
+	}
+} */
 
 	const handleChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
 		if (!event.currentTarget.files) return
@@ -52,9 +51,9 @@ export const UploadHandler = () => {
 		<Wrapper>
 			<h1>{uploadedFile?.name}</h1>
 			<Formik
-				initialValues={{ category: category, uploadedFile: uploadedFile, author: author }}
+				initialValues={{ category: category, uploadedFile: uploadedFile, author: '' }}
 				validationSchema={fileUploadValidation}
-				onSubmit={(values, actions) => submitFile()}>
+				onSubmit={(values, actions) => submitFile(values)}>
 				<Form>
 					<input
 						type='file'
@@ -63,19 +62,11 @@ export const UploadHandler = () => {
 						onChange={handleChange}
 						style={{ display: 'none' }} />
 					<Categories
-						title={uploadedFile?.name || ''}
 						categories={Constants.CATEGORIES}
 						categoryChange={(e: React.ChangeEvent<HTMLInputElement>): void => { setCategory(e.currentTarget.value) }} />
-					{/* <TextField
-						required={true}
-						name='author'
-						id='filled-required'
-						label='Author'
-						variant='filled'
-						onChange={(e) => setAuthor(e.target.value.toLocaleLowerCase())} /> */}
-					<InputField required={true} name='author' label='Author' type='text' onChange={() => (e: any) => setAuthor(e.target.value.toLocaleLowerCase())} />
-					{/* <Tags subjects={subjects} setSubjects={setSubjects} /> */}
-					<Button text={'send file to the cloud'} onClick={() => submitFile()} />
+					<InputField required={true} name='author' label='Author' type='text' /* onChange={() => (e: any) => setAuthor(e.target.value.toLocaleLowerCase())} */ />
+					<Tags subjects={subjects} setSubjects={setSubjects} />
+					<Button text={'send file to the cloud'} />
 				</Form>
 			</Formik>
 		</Wrapper>

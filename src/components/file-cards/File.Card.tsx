@@ -78,6 +78,7 @@ const Wrapper = styled.div`
 	margin: 0 auto 1%;
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
+	box-shadow: 0 8px 6px -6px black;
 `
 
 const Title = styled.span`
