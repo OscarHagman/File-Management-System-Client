@@ -1,7 +1,7 @@
 import pdfPNG from "../shared/images/format/pdf.png"
 import imagePNG from "../shared/images/format/image.png"
 import documentPNG from "../shared/images/format/documents.png"
-import videoPNG from "../shared/images/format/mp4.png"
+import videoPNG from "../shared/images/format/video.png"
 import docxPNG from "../shared/images/format/docx.png"
 import unkownPNG from "../shared/images/format/unknownFileType.png"
 
