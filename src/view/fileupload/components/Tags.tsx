@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { inspect } from 'util'
 import Chip from '@mui/material/Chip'
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
@@ -13,29 +12,26 @@ export default function Tags(props: { subjects: any, setSubjects: any }) {
 	}, [props.setSubjects])
 
 	return (
-		<Stack spacing={3} sx={{ width: 500 }}>
+		<Stack spacing={3}>
 			<Autocomplete
-				multiple
-				id="tags-filled"
+				multiple={true}
+				id='tags-filled'
 				options={listOfTags.map((option) => option.searchTag)}
 				onChange={onChange}
-				freeSolo
+				freeSolo={true}
 				renderTags={(subjects: readonly string[], getTagProps) =>
 					subjects.map((option: string, index: number) => (
 						// eslint-disable-next-line react/jsx-key
-						<Chip variant="outlined" label={option} {...getTagProps({ index })} />
-					))
-				}
+						<Chip variant='outlined' label={option} {...getTagProps({ index })} />
+					))}
 				renderInput={(params) => (
 					<TextField
 						{...params}
-						variant="filled"
-						label="Subject ñ Search Labels"
-						placeholder="add new subject?"
-					/>
-				)}
-			/>
-			{inspect(props.subjects)}
+						variant='filled'
+						label='Subject(s)'
+						required={true}
+						placeholder='add new subject?'/>
+				)}/>
 		</Stack>
 	)
 }

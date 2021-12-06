@@ -43,6 +43,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body, html {
 	animation: ${fadeInOpacity} 500ms ease-in;
+  background-color: #edebe7;
   }
 
   p, span, h1, h2, h3, h4, h5, h6 {

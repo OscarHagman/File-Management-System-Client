@@ -38,7 +38,7 @@ export const SearchHandler = (props: { searchField: any, setSearchField: any }) 
 				<Input placeholder={'Search for files..'}
 					onChange={(e: React.FormEvent<HTMLInputElement>) => props.setSearchField(e.currentTarget.value.toLocaleLowerCase())} />
 			</Wrapper>
-			{isSearching ? <h1>Searching..</h1> : <FileCardList files={searchResults} searchTerm={props.searchField} />}
+			{isSearching ? <h1>{"Searching.."}</h1> : <FileCardList files={searchResults} searchTerm={props.searchField} />}
 		</>
 	)
 }
