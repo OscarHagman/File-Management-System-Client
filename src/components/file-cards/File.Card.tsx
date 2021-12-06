@@ -1,14 +1,9 @@
+import React, { useState } from 'react'
 import { Button } from '../Button'
-import React, { useContext, useState } from 'react'
-import BackendAPIService from '../../shared/api/service/BackendAPIService'
-import { useFileManagement } from '../../hooks/useFileManagement'
-import styled from 'styled-components'
-import { SearchContext } from '../../shared/provider/SearchFileProvider'
-import pdfFormat from '../../shared/images/format/pdf.png'
 import DeleteConfirmation from './DeleteConfirmation'
-import Chip from './Badge'
+import BackendAPIService from '../../shared/api/service/BackendAPIService'
+import styled from 'styled-components'
 import Badge from './Badge'
-import { getFileFormatPNG } from "../../shared/global/utils"
 import { displayFormatImage } from "../../functions/displayFormatImage"
 
 interface Props {
@@ -27,8 +22,6 @@ interface Props {
 export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fileSize, fileType, subjects, numOfDownloads }) => {
 	const [deleteDialog, setDeleteDialogen] = useState(false)
 	const [downloads, setDownloads] = useState(numOfDownloads)
-	const [searchResults, setSearchResults] = useContext(SearchContext)
-	const { deleteFile } = useFileManagement()
 
 	const downloadFile = () => {
 		BackendAPIService.downloadFile(fileId)
@@ -46,13 +39,13 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			.then((response: any) => {
 				setDownloads(response.data.numOfDownloads)
 			})
-			.catch((error) => console.log("ERROR:", error))
+			.catch((error) => console.log('ERROR:', error))
 	}
 
-	const deleteAndUpdateResults = (fileId: string) => {
+/* 	const deleteAndUpdateResults = (fileId: string) => {
 		const updatedResults = searchResults.filter((item: any) => item._id != fileId)
 		deleteFile(fileId) && setSearchResults(updatedResults)
-	}
+	} */
 
 	return (
 		<Wrapper>
@@ -60,14 +53,14 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 			{displayFormatImage(fileType)}
 			<InformationWrapper>
 				<Badge subjects={subjects} />
-				<Span>Author:</Span> <Span2>{author}</Span2> <br />
-				<Span>Category:</Span> <Span2>{category}</Span2> <br />
-				<Span>Format:</Span> <Span2>{fileType}</Span2> <br />
-				<Span>Uploaded:</Span> <Span2>2021/10/27</Span2> <br />
+				<Span>{'Author:'}</Span> <Span2>{author}</Span2> <br />
+				<Span>{'Category:'}</Span> <Span2>{category}</Span2> <br />
+				<Span>{'Format:'}</Span> <Span2>{fileType}</Span2> <br />
+				<Span>{'Uploaded:'}</Span> <Span2>{'2021/10/27'}</Span2> <br />
 				<Span2>{fileSize}</Span2> <br />
-				<Span2>{downloads} downloads</Span2> <br />
+				<Span2>{downloads} {'downloads'}</Span2> <br />
 			</InformationWrapper>
-			<ButtonWrapper row="2/2">
+			<ButtonWrapper row='2/2'>
 				<Button color={'#00c281'} text={'download'} onClick={() => downloadFile()} />
 				<Button color={'#FF6663'} text={'delete'} onClick={() => setDeleteDialogen(true)} />
 			</ButtonWrapper>
@@ -85,6 +78,7 @@ const Wrapper = styled.div`
 	margin: 0 auto 1%;
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
+	box-shadow: 0 8px 6px -6px black;
 `
 
 const Title = styled.span`

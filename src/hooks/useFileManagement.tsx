@@ -20,7 +20,7 @@ export const useFileManagement: any = () => {
 	const uploadFile = async (author: any, category: any, uploadedFile: any, subjects: any) => {
 		try {
 			BackendAPIService.uploadFile(author, category, uploadedFile, subjects),
-			toast.success('File successfully uploaded')
+				toast.success('File successfully uploaded')
 		} catch (error) {
 			console.log(error)
 		}

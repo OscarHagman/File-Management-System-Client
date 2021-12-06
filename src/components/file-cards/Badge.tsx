@@ -5,12 +5,12 @@ export default function Badge(props: { subjects: [string] }) {
 
 	const displaySubjects = () => {
 		return (
-			props.subjects.map((item: any) => <Chip key={Math.random()} label={item} size="small" />)
+			props.subjects.map((item: any) => <Chip variant='outlined' key={Math.random()} label={item} size='small' />)
 		)
 	}
 
 	return (
-		<Stack direction="row" spacing={1}>
+		<Stack direction='row' spacing={1}>
 			{displaySubjects()}
 		</Stack>
 	)
