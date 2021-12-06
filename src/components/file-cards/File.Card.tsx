@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Button } from '../Button'
 import DeleteConfirmation from './DeleteConfirmation'
 import BackendAPIService from '../../shared/api/service/BackendAPIService'
-import pdfFormat from '../../shared/images/format/pdf.png'
 import styled from 'styled-components'
 import Badge from './Badge'
+import { displayFormatImage } from "../../functions/displayFormatImage"
 
 interface Props {
 	title: string,
@@ -50,7 +50,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 	return (
 		<Wrapper>
 			<Title>{title}</Title> <br />
-			<FileImage src={pdfFormat} alt='file-type-icon' />
+			{displayFormatImage(fileType)}
 			<InformationWrapper>
 				<Badge subjects={subjects} />
 				<Span>{'Author:'}</Span> <Span2>{author}</Span2> <br />
