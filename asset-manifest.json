@@ -1,24 +1,30 @@
 {
   "files": {
-    "main.js": "/file-management-system-client/static/js/main.a37f8816.chunk.js",
-    "main.js.map": "/file-management-system-client/static/js/main.a37f8816.chunk.js.map",
-    "runtime-main.js": "/file-management-system-client/static/js/runtime-main.fb64e603.js",
-    "runtime-main.js.map": "/file-management-system-client/static/js/runtime-main.fb64e603.js.map",
-    "static/css/2.58a45539.chunk.css": "/file-management-system-client/static/css/2.58a45539.chunk.css",
-    "static/js/2.7eab9998.chunk.js": "/file-management-system-client/static/js/2.7eab9998.chunk.js",
-    "static/js/2.7eab9998.chunk.js.map": "/file-management-system-client/static/js/2.7eab9998.chunk.js.map",
-    "index.html": "/file-management-system-client/index.html",
-    "static/css/2.58a45539.chunk.css.map": "/file-management-system-client/static/css/2.58a45539.chunk.css.map",
-    "static/js/2.7eab9998.chunk.js.LICENSE.txt": "/file-management-system-client/static/js/2.7eab9998.chunk.js.LICENSE.txt",
-    "static/media/AlegreyaSans.6fa8fccf.ttf": "/file-management-system-client/static/media/AlegreyaSans.6fa8fccf.ttf",
-    "static/media/AlegreyaSansRegular.be225cd3.ttf": "/file-management-system-client/static/media/AlegreyaSansRegular.be225cd3.ttf",
-    "static/media/OleoScript.9f2a6e39.ttf": "/file-management-system-client/static/media/OleoScript.9f2a6e39.ttf",
-    "static/media/neutral.dfeca68b.png": "/file-management-system-client/static/media/neutral.dfeca68b.png"
+    "main.css": "/File-Management-System-Client/static/css/main.037bfcae.chunk.css",
+    "main.js": "/File-Management-System-Client/static/js/main.4ba2f806.chunk.js",
+    "main.js.map": "/File-Management-System-Client/static/js/main.4ba2f806.chunk.js.map",
+    "runtime-main.js": "/File-Management-System-Client/static/js/runtime-main.a591ccfc.js",
+    "runtime-main.js.map": "/File-Management-System-Client/static/js/runtime-main.a591ccfc.js.map",
+    "static/css/2.58a45539.chunk.css": "/File-Management-System-Client/static/css/2.58a45539.chunk.css",
+    "static/js/2.2584593d.chunk.js": "/File-Management-System-Client/static/js/2.2584593d.chunk.js",
+    "static/js/2.2584593d.chunk.js.map": "/File-Management-System-Client/static/js/2.2584593d.chunk.js.map",
+    "index.html": "/File-Management-System-Client/index.html",
+    "static/css/2.58a45539.chunk.css.map": "/File-Management-System-Client/static/css/2.58a45539.chunk.css.map",
+    "static/css/main.037bfcae.chunk.css.map": "/File-Management-System-Client/static/css/main.037bfcae.chunk.css.map",
+    "static/js/2.2584593d.chunk.js.LICENSE.txt": "/File-Management-System-Client/static/js/2.2584593d.chunk.js.LICENSE.txt",
+    "static/media/AlegreyaSans.6fa8fccf.ttf": "/File-Management-System-Client/static/media/AlegreyaSans.6fa8fccf.ttf",
+    "static/media/AlegreyaSansRegular.be225cd3.ttf": "/File-Management-System-Client/static/media/AlegreyaSansRegular.be225cd3.ttf",
+    "static/media/OleoScript.9f2a6e39.ttf": "/File-Management-System-Client/static/media/OleoScript.9f2a6e39.ttf",
+    "static/media/docx.d0e97a30.png": "/File-Management-System-Client/static/media/docx.d0e97a30.png",
+    "static/media/image.0173ea21.png": "/File-Management-System-Client/static/media/image.0173ea21.png",
+    "static/media/neutral.dfeca68b.png": "/File-Management-System-Client/static/media/neutral.dfeca68b.png",
+    "static/media/unknownFileType.e77c92e6.png": "/File-Management-System-Client/static/media/unknownFileType.e77c92e6.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.fb64e603.js",
+    "static/js/runtime-main.a591ccfc.js",
     "static/css/2.58a45539.chunk.css",
-    "static/js/2.7eab9998.chunk.js",
-    "static/js/main.a37f8816.chunk.js"
+    "static/js/2.2584593d.chunk.js",
+    "static/css/main.037bfcae.chunk.css",
+    "static/js/main.4ba2f806.chunk.js"
   ]
 }
