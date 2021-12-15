@@ -3,7 +3,7 @@ import Constants from '../global/Constants'
 
 
 const BackendAPI = Axios.create({
-	baseURL: Constants.URLs.baseURL_DEV,
+	baseURL: Constants.URLs.baseURL_PROD,
 })
 
 export default BackendAPI
