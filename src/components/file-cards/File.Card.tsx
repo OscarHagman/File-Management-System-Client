@@ -50,7 +50,7 @@ export const FileCard: React.FC<Props> = ({ title, author, category, fileId, fil
 	return (
 		<Wrapper>
 			<Title>{title}</Title> <br />
-			{displayFormatImage(fileType)}
+			{/*{displayFormatImage(fileType)}*/}
 			<InformationWrapper>
 				<Badge subjects={subjects} />
 				<Span>{'Author:'}</Span> <Span2>{author}</Span2> <br />

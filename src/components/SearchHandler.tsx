@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 export const SearchHandler = (props: { searchField: any, setSearchField: any }) => {
 	const [searchResults, setSearchResults] = useContext(SearchContext)
-	/* const [searchField, setSearchField] = useState<string>('') */
+	/*const [searchField, setSearchField] = useState<string>('') */
 	const [isSearching, setIsSearching] = useState(false)
 	const { searchFiles } = useFileManagement()
 	const debouncedSearchTerm = useDebounce(props.searchField, 500)

@@ -9,7 +9,8 @@ enum Fields {
 
 enum URLs {
 	baseURL_DEV = 'http://127.0.0.1:3001',
-	baseURL_PROD = 'https://codic-file-management-system.herokuapp.com'
+	baseURL_PROD = 'https://codic-file-management-system.herokuapp.com',
+	baseURL_DEMO = "http://85.226.48.250"
 }
 
 const CATEGORIES = [
