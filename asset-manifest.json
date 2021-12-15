@@ -1,30 +1,24 @@
 {
   "files": {
-    "main.css": "/File-Management-System-Client/static/css/main.037bfcae.chunk.css",
-    "main.js": "/File-Management-System-Client/static/js/main.84a45e34.chunk.js",
-    "main.js.map": "/File-Management-System-Client/static/js/main.84a45e34.chunk.js.map",
+    "main.js": "/File-Management-System-Client/static/js/main.3bdb7229.chunk.js",
+    "main.js.map": "/File-Management-System-Client/static/js/main.3bdb7229.chunk.js.map",
     "runtime-main.js": "/File-Management-System-Client/static/js/runtime-main.a591ccfc.js",
     "runtime-main.js.map": "/File-Management-System-Client/static/js/runtime-main.a591ccfc.js.map",
     "static/css/2.58a45539.chunk.css": "/File-Management-System-Client/static/css/2.58a45539.chunk.css",
-    "static/js/2.2584593d.chunk.js": "/File-Management-System-Client/static/js/2.2584593d.chunk.js",
-    "static/js/2.2584593d.chunk.js.map": "/File-Management-System-Client/static/js/2.2584593d.chunk.js.map",
+    "static/js/2.780200e7.chunk.js": "/File-Management-System-Client/static/js/2.780200e7.chunk.js",
+    "static/js/2.780200e7.chunk.js.map": "/File-Management-System-Client/static/js/2.780200e7.chunk.js.map",
     "index.html": "/File-Management-System-Client/index.html",
     "static/css/2.58a45539.chunk.css.map": "/File-Management-System-Client/static/css/2.58a45539.chunk.css.map",
-    "static/css/main.037bfcae.chunk.css.map": "/File-Management-System-Client/static/css/main.037bfcae.chunk.css.map",
-    "static/js/2.2584593d.chunk.js.LICENSE.txt": "/File-Management-System-Client/static/js/2.2584593d.chunk.js.LICENSE.txt",
+    "static/js/2.780200e7.chunk.js.LICENSE.txt": "/File-Management-System-Client/static/js/2.780200e7.chunk.js.LICENSE.txt",
     "static/media/AlegreyaSans.6fa8fccf.ttf": "/File-Management-System-Client/static/media/AlegreyaSans.6fa8fccf.ttf",
     "static/media/AlegreyaSansRegular.be225cd3.ttf": "/File-Management-System-Client/static/media/AlegreyaSansRegular.be225cd3.ttf",
     "static/media/OleoScript.9f2a6e39.ttf": "/File-Management-System-Client/static/media/OleoScript.9f2a6e39.ttf",
-    "static/media/docx.d0e97a30.png": "/File-Management-System-Client/static/media/docx.d0e97a30.png",
-    "static/media/image.0173ea21.png": "/File-Management-System-Client/static/media/image.0173ea21.png",
-    "static/media/neutral.dfeca68b.png": "/File-Management-System-Client/static/media/neutral.dfeca68b.png",
-    "static/media/unknownFileType.e77c92e6.png": "/File-Management-System-Client/static/media/unknownFileType.e77c92e6.png"
+    "static/media/neutral.dfeca68b.png": "/File-Management-System-Client/static/media/neutral.dfeca68b.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a591ccfc.js",
     "static/css/2.58a45539.chunk.css",
-    "static/js/2.2584593d.chunk.js",
-    "static/css/main.037bfcae.chunk.css",
-    "static/js/main.84a45e34.chunk.js"
+    "static/js/2.780200e7.chunk.js",
+    "static/js/main.3bdb7229.chunk.js"
   ]
 }
